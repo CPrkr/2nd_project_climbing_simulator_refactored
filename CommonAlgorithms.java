@@ -7,7 +7,7 @@ import java.awt.geom.Rectangle2D;
 
 class CommonAlgorithms {
 	
-	static float Pi = constants.Pi;
+	static float Pi = Constants.Pi;
 	
 	//I. BASIC CALCULATIONS
 	
@@ -175,8 +175,8 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantOfProperHoldSpacingBasedOnReachableRange(ClimbingHold h, Direction dir, float interQuadrantGapFormattedAsDegreesInFloat) {			
 		
-		float outerRadius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
-		float innerRadius = constants.MinimumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
+		float outerRadius = Constants.MaximumDistanceForProperSpacingInQuadrant * Constants.SizeFactor;
+		float innerRadius = Constants.MinimumDistanceForProperSpacingInQuadrant * Constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		float arcExtent = 90 - (2 * interQuadrantGapFormattedAsDegreesInFloat);
@@ -216,7 +216,7 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantForDeterminingBorderHolds(ClimbingHold h, Direction dir) {			
 		
-		float radius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
+		float radius = Constants.MaximumDistanceForProperSpacingInQuadrant * Constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		

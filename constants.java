@@ -2,7 +2,7 @@ package com.craigcode.climbing_simulator_refactored;
 
 import java.awt.Color;
 
-class constants {
+class Constants {
 	
 	static final float Pi = (float) Math.PI;
 	

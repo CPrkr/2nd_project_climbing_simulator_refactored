@@ -31,7 +31,7 @@ class Climber extends Applet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static float Pi = constants.Pi;
+	private static float Pi = Constants.Pi;
 	
 	private boolean iAmOnTheWall;
 	private boolean iHaveLeftGroundAndConnectedToWallWithAllFourLimbs;
@@ -240,36 +240,36 @@ class Climber extends Applet {
 		iAmOnTheWall = false;
 		iHaveLeftGroundAndConnectedToWallWithAllFourLimbs = false;
 		
-		shoulderSocketSpan = constants.ShoulderSocketSpan * constants.SizeFactor;
-		humerusLength = constants.HumerusLength * constants.SizeFactor;
-		forearmLength = constants.ForearmLength * constants.SizeFactor;
-		torsoHeightFromTopOfTrapsToWaist = constants.TorsoHeightFromTopOfTrapsToWaist * constants.SizeFactor;
-		beltBuckleToCenterPelvisDistance = constants.BeltBuckleToCenterOfPelvisBetweenHipSocketsVerticalDistance * constants.SizeFactor;
-		hipSocketSpan = constants.HipSocketSpan * constants.SizeFactor;
-		femurLength = constants.FemurLength * constants.SizeFactor;
-		calfLength = constants.CalfLength * constants.SizeFactor;
-		footLengthHorizontalFromAnkleToToe = constants.FootLengthFromAnkle * constants.SizeFactor;
-		footLength = constants.FootLength * constants.SizeFactor;
-		footHeight = constants.FootHeight * constants.SizeFactor;
-		headRadius = constants.HeadRadius * constants.SizeFactor;
-		distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle = constants.DistanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.SizeFactor;
-		neckThickness = constants.NeckThickness * constants.SizeFactor;
-		upperArmWidth = constants.UpperArmWidth * constants.SizeFactor;
-		elbowWidth = constants.ElbowWidth * constants.SizeFactor;
-		wristWidth = constants.WristWidth * constants.SizeFactor;
-		handRadius = constants.HandRadius * constants.SizeFactor;		
-		upperThighWidth = constants.UpperThighWidth * constants.SizeFactor;
-		kneeWidth = constants.KneeWidth * constants.SizeFactor;
-		ankleWidth = constants.AnkleWidth * constants.SizeFactor;
-		waistToInseamCentralVerticalDistance = constants.WaistToInseamCentralVerticalDistance * constants.SizeFactor;
-		hipToOuterPelvisCreaseVerticalDistance = constants.HipToOuterPelvisCreaseVerticalDistance * constants.SizeFactor;
-		inseamToInnerPelvisCreaseHorizontalDistance = constants.InseamToInnerPelvisCreaseHorizontalDistance * constants.SizeFactor;
-		fingerLength = constants.MiddleFingerLength * constants.SizeFactor;
-		fingerWidth = constants.FingerWidth * constants.SizeFactor;
-		thumbLength = constants.ThumbLength * constants.SizeFactor;
-		thumbWidth = constants.ThumbWidth * constants.SizeFactor;
+		shoulderSocketSpan = Constants.ShoulderSocketSpan * Constants.SizeFactor;
+		humerusLength = Constants.HumerusLength * Constants.SizeFactor;
+		forearmLength = Constants.ForearmLength * Constants.SizeFactor;
+		torsoHeightFromTopOfTrapsToWaist = Constants.TorsoHeightFromTopOfTrapsToWaist * Constants.SizeFactor;
+		beltBuckleToCenterPelvisDistance = Constants.BeltBuckleToCenterOfPelvisBetweenHipSocketsVerticalDistance * Constants.SizeFactor;
+		hipSocketSpan = Constants.HipSocketSpan * Constants.SizeFactor;
+		femurLength = Constants.FemurLength * Constants.SizeFactor;
+		calfLength = Constants.CalfLength * Constants.SizeFactor;
+		footLengthHorizontalFromAnkleToToe = Constants.FootLengthFromAnkle * Constants.SizeFactor;
+		footLength = Constants.FootLength * Constants.SizeFactor;
+		footHeight = Constants.FootHeight * Constants.SizeFactor;
+		headRadius = Constants.HeadRadius * Constants.SizeFactor;
+		distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle = Constants.DistanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.SizeFactor;
+		neckThickness = Constants.NeckThickness * Constants.SizeFactor;
+		upperArmWidth = Constants.UpperArmWidth * Constants.SizeFactor;
+		elbowWidth = Constants.ElbowWidth * Constants.SizeFactor;
+		wristWidth = Constants.WristWidth * Constants.SizeFactor;
+		handRadius = Constants.HandRadius * Constants.SizeFactor;		
+		upperThighWidth = Constants.UpperThighWidth * Constants.SizeFactor;
+		kneeWidth = Constants.KneeWidth * Constants.SizeFactor;
+		ankleWidth = Constants.AnkleWidth * Constants.SizeFactor;
+		waistToInseamCentralVerticalDistance = Constants.WaistToInseamCentralVerticalDistance * Constants.SizeFactor;
+		hipToOuterPelvisCreaseVerticalDistance = Constants.HipToOuterPelvisCreaseVerticalDistance * Constants.SizeFactor;
+		inseamToInnerPelvisCreaseHorizontalDistance = Constants.InseamToInnerPelvisCreaseHorizontalDistance * Constants.SizeFactor;
+		fingerLength = Constants.MiddleFingerLength * Constants.SizeFactor;
+		fingerWidth = Constants.FingerWidth * Constants.SizeFactor;
+		thumbLength = Constants.ThumbLength * Constants.SizeFactor;
+		thumbWidth = Constants.ThumbWidth * Constants.SizeFactor;
 		
-		highestPossibleExtensionFromFootToHand = footHeight + calfLength + femurLength + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)) + humerusLength + forearmLength + handRadius;
+		highestPossibleExtensionFromFootToHand = footHeight + calfLength + femurLength + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)) + humerusLength + forearmLength + handRadius;
 		widestPossibleExtensionFromHandToHand = shoulderSocketSpan + (2 * (humerusLength + forearmLength + handRadius)); 
 		
 		leftArm = new LeftArm();
@@ -560,7 +560,7 @@ class Climber extends Applet {
 				disconnectFromWall();
 			}
 			
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, constants.LimbMovementIncrement * constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, Constants.LimbMovementIncrement * Constants.SizeFactor);
 			
 			Point waypoint = getWallConnectionBodyPartPoint();
 					
@@ -585,7 +585,7 @@ class Climber extends Applet {
 				disconnectFromWall();
 			}
 			
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, constants.LimbMovementIncrement * constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, Constants.LimbMovementIncrement * Constants.SizeFactor);
 			
 			Point waypoint = getWallConnectionBodyPartPoint();
 					
@@ -666,11 +666,11 @@ class Climber extends Applet {
 			
 			if(isLeft()) {
 
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (1 * constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (1 * Constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * Constants.SizeFactor))), false);
 				
 			} else {
 
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (1 * constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (1 * Constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * Constants.SizeFactor))), false);
 			}
 		}
 		
@@ -694,9 +694,9 @@ class Climber extends Applet {
 			Shape otherSideOfBody;
 			
 			if (isLeft()) {
-				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x + (constants.ShoulderSocketSpan * constants.SizeFactor), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
+				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x + (Constants.ShoulderSocketSpan * Constants.SizeFactor), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
 			} else {
-				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x - ((constants.ShoulderSocketSpan * constants.SizeFactor) + maximumReachLength), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
+				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x - ((Constants.ShoulderSocketSpan * Constants.SizeFactor) + maximumReachLength), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
 			}
 	
 			Area areaToSubtract = new Area(otherSideOfBody);
@@ -730,7 +730,7 @@ class Climber extends Applet {
 
 		@Override
 		float getReachDistanceContributedByExtremity() {
-			return Math.min(footHeight + ((constants.HoldDiameter/2) * constants.SizeFactor), (footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)); //the second part of this equation could be a bit longer if it took into account the distance between ankle and foot-hold contact point, but reaching that far tends to trigger cramps in the author's feet
+			return Math.min(footHeight + ((Constants.HoldDiameter/2) * Constants.SizeFactor), (footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)); //the second part of this equation could be a bit longer if it took into account the distance between ankle and foot-hold contact point, but reaching that far tends to trigger cramps in the author's feet
 		}
 		
 		@Override
@@ -738,11 +738,11 @@ class Climber extends Applet {
 
 			if(isLeft()) {
 				
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (5 * constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (5 * Constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * Constants.SizeFactor))), false);
 
 			} else {
 				
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (5 * constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (5 * Constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * Constants.SizeFactor))), false);
 			}
 		}
 		
@@ -779,24 +779,24 @@ class Climber extends Applet {
 			Shape otherSideOfBody;
 			Shape legReachArcThatRunsAwayFromPelvisCenter;
 			
-			tooHighForInflexibleClimber = new Rectangle2D.Float(torsoCOG.x - (maximumReachLength + footLength), torsoCOG.y - (maximumReachLength + ((constants.HoldDiameter/2) * constants.SizeFactor)), 2 * (maximumReachLength + footLength), maximumReachLength + ((constants.HoldDiameter/2) * constants.SizeFactor));
+			tooHighForInflexibleClimber = new Rectangle2D.Float(torsoCOG.x - (maximumReachLength + footLength), torsoCOG.y - (maximumReachLength + ((Constants.HoldDiameter/2) * Constants.SizeFactor)), 2 * (maximumReachLength + footLength), maximumReachLength + ((Constants.HoldDiameter/2) * Constants.SizeFactor));
 						
 			if (isLeft()) {
-				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), (180.0f - constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint), constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
+				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), (180.0f - Constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint), Constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
 			} else {
-				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 0, constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
+				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 0, Constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
 			}
 								
 			if (isLeft()) {
-				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), pelvisCenter.y - maximumReachLength, maximumReachLength + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((constants.HoldDiameter/2) * constants.SizeFactor)));
+				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), pelvisCenter.y - maximumReachLength, maximumReachLength + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((Constants.HoldDiameter/2) * Constants.SizeFactor)));
 			} else {
-				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x - maximumReachLength, pelvisCenter.y - maximumReachLength, maximumReachLength - ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((constants.HoldDiameter/2) * constants.SizeFactor)));
+				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x - maximumReachLength, pelvisCenter.y - maximumReachLength, maximumReachLength - ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((Constants.HoldDiameter/2) * Constants.SizeFactor)));
 			}
 			
 			if (isLeft()) {
-				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f, constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
+				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f, Constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
 			} else {
-				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x - ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f - constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
+				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x - ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f - Constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
 			}
 									
 			areaTooHighForInflexibleClimber = new Area(tooHighForInflexibleClimber);
@@ -953,7 +953,7 @@ class Climber extends Applet {
 			Point shiftFromBallOfFootToHoldCenter = new Point();
 			
 			shiftFromBallOfFootToHoldCenter.x = leftFootHoldContactPoint.x;
-			shiftFromBallOfFootToHoldCenter.y = Math.round(leftFootHoldContactPoint.y + (((constants.HoldDiameter/2) * constants.SizeFactor) - 1));
+			shiftFromBallOfFootToHoldCenter.y = Math.round(leftFootHoldContactPoint.y + (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1));
 			
 			return shiftFromBallOfFootToHoldCenter;
 		}
@@ -965,7 +965,7 @@ class Climber extends Applet {
 			Point shiftFromHoldCenterToBallOfFoot = new Point();
 			
 			shiftFromHoldCenterToBallOfFoot.x = p.x;
-			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((constants.HoldDiameter/2) * constants.SizeFactor) - 1));
+			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1));
 			
 			leftFootHoldContactPoint = shiftFromHoldCenterToBallOfFoot;
 		}
@@ -1003,7 +1003,7 @@ class Climber extends Applet {
 			updateCurrentHipBox();
 			updateLeftUnjammedFootWaypoint();
 			
-			float distanceFromBottomOfFootToHoldCenter = (((constants.HoldDiameter/2) * constants.SizeFactor) - 1);
+			float distanceFromBottomOfFootToHoldCenter = (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1);
 			
 			Point prospectiveFootHoldContactPoint = CommonAlgorithms.roundPoint(prospectiveDestinationPoint.x, prospectiveDestinationPoint.y - distanceFromBottomOfFootToHoldCenter);
 			
@@ -1037,7 +1037,7 @@ class Climber extends Applet {
 		
 		void updateLeftUnjammedFootWaypoint() {
 		
-			leftUnjammedFootWaypoint = CommonAlgorithms.roundPoint((leftShoulderSocketPos.x - ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor))) + 1);
+			leftUnjammedFootWaypoint = CommonAlgorithms.roundPoint((leftShoulderSocketPos.x - ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor))) + 1);
 		}
 		
 		void moveLimbToUnjammedWaypointFirst(Point ultimateDestinationPoint, boolean connectToWallAfterMakingMove) {
@@ -1063,7 +1063,7 @@ class Climber extends Applet {
 			Point shiftFromBallOfFootToHoldCenter = new Point();
 			
 			shiftFromBallOfFootToHoldCenter.x = rightFootHoldContactPoint.x;
-			shiftFromBallOfFootToHoldCenter.y = Math.round(rightFootHoldContactPoint.y + (((constants.HoldDiameter/2) * constants.SizeFactor) - 1));
+			shiftFromBallOfFootToHoldCenter.y = Math.round(rightFootHoldContactPoint.y + (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1));
 			
 			return shiftFromBallOfFootToHoldCenter;
 		}
@@ -1075,7 +1075,7 @@ class Climber extends Applet {
 			Point shiftFromHoldCenterToBallOfFoot = new Point();
 			
 			shiftFromHoldCenterToBallOfFoot.x = p.x;
-			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((constants.HoldDiameter/2) * constants.SizeFactor) - 1));
+			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1));
 			
 			rightFootHoldContactPoint = shiftFromHoldCenterToBallOfFoot;
 		}
@@ -1113,7 +1113,7 @@ class Climber extends Applet {
 			updateCurrentHipBox();
 			updateRightUnjammedFootWaypoint();
 			
-			float distanceFromBottomOfFootToHoldCenter = (((constants.HoldDiameter/2) * constants.SizeFactor) - 1);
+			float distanceFromBottomOfFootToHoldCenter = (((Constants.HoldDiameter/2) * Constants.SizeFactor) - 1);
 			
 			Point prospectiveFootHoldContactPoint = CommonAlgorithms.roundPoint(prospectiveDestinationPoint.x, prospectiveDestinationPoint.y - distanceFromBottomOfFootToHoldCenter);
 			
@@ -1147,7 +1147,7 @@ class Climber extends Applet {
 		
 		void updateRightUnjammedFootWaypoint() {
 			
-			rightUnjammedFootWaypoint = CommonAlgorithms.roundPoint((rightShoulderSocketPos.x + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) + 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor))) + 1);
+			rightUnjammedFootWaypoint = CommonAlgorithms.roundPoint((rightShoulderSocketPos.x + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) + 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor))) + 1);
 		}
 		
 		void moveLimbToUnjammedWaypointFirst(Point ultimateDestinationPoint, boolean connectToWallAfterMakingMove) {
@@ -1364,7 +1364,7 @@ class Climber extends Applet {
 			
 			calculateLeftShoulderDestinationBasedOnBeltBuckleDestinationPoint();
 							
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, constants.TorsoMovementIncrement * constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, Constants.TorsoMovementIncrement * Constants.SizeFactor);
 
 			Point waypoint = new Point();
 			
@@ -1414,8 +1414,8 @@ class Climber extends Applet {
 			
 			Point destinationOfWallConnectionPointForDisconnectedLimb = new Point(leftShoulderDestination.x - xOffsetBetweenLeftShoulderSocketPosAndDisconnectedLimb, leftShoulderDestination.y - yOffsetBetweenLeftShoulderSocketPosAndDisconnectedLimb);
 	
-			ArrayList<float[]> torsoMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, constants.TorsoMovementIncrement * constants.SizeFactor);
-			ArrayList<float[]> disconnectedLimbMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(get(disconnectedLimb).getWallConnectionBodyPartPoint(), destinationOfWallConnectionPointForDisconnectedLimb, constants.TorsoMovementIncrement * constants.SizeFactor);
+			ArrayList<float[]> torsoMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, Constants.TorsoMovementIncrement * Constants.SizeFactor);
+			ArrayList<float[]> disconnectedLimbMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(get(disconnectedLimb).getWallConnectionBodyPartPoint(), destinationOfWallConnectionPointForDisconnectedLimb, Constants.TorsoMovementIncrement * Constants.SizeFactor);
 	
 			Point torsoWaypoint = new Point();
 			Point disconnectedLimbWaypoint = new Point();
@@ -1500,7 +1500,7 @@ class Climber extends Applet {
 		
 		void calculateLeftShoulderDestinationBasedOnBeltBuckleDestinationPoint() {
 			
-			leftShoulderDestination = CommonAlgorithms.roundPoint(desiredDestinationForBeltBuckle.x - (shoulderSocketSpan/2), (desiredDestinationForBeltBuckle.y - (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead))));
+			leftShoulderDestination = CommonAlgorithms.roundPoint(desiredDestinationForBeltBuckle.x - (shoulderSocketSpan/2), (desiredDestinationForBeltBuckle.y - (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead))));
 		}
 		
 		void testEachLimbForViolationOfReachableAreaUponProspectiveTorsoMove() throws LimbMustMoveFirstException {
@@ -1704,17 +1704,17 @@ class Climber extends Applet {
 		leftShoulderSocketPos = CommonAlgorithms.roundPoint((anchorPoint.x - (shoulderSocketSpan/2)), ((-1) * (footHeight + calfLength + femurLength + torsoHeightFromTopOfTrapsToWaist)));
 		updateTorsoPoints();
 				
-		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * constants.SizeFactor)));
-		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * constants.SizeFactor)));
-		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * constants.SizeFactor)), (pelvisCenterPos.y + (66 * constants.SizeFactor)));
-		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * constants.SizeFactor)), (pelvisCenterPos.y + (66 * constants.SizeFactor)));
+		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * Constants.SizeFactor)));
+		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * Constants.SizeFactor)));
+		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
+		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
 		
 		updateAllCriticalPoints();
 	}
 	
 	void lowerClimber() {
 		
-		int tD = Math.round(constants.LoweringTickDistance * constants.SizeFactor);
+		int tD = Math.round(Constants.LoweringTickDistance * Constants.SizeFactor);
 		
 		while(leftFootHoldContactPoint.y < ClimbingWall.heightOfWall) {
 			
@@ -1774,7 +1774,7 @@ class Climber extends Applet {
 		rightArm.moveLimbToPointOverrideable(rightHandTopout, false);
 		rightArm.isConnectedToSomething = true;
 		
-		int tD = Math.round(constants.ToppingOutDistance * constants.SizeFactor);
+		int tD = Math.round(Constants.ToppingOutDistance * Constants.SizeFactor);
 		
 		while (beltBucklePos.y > 0) {
 			
@@ -1783,7 +1783,7 @@ class Climber extends Applet {
 			leftLeg.updateOverallExtensionRatio();
 			rightLeg.updateOverallExtensionRatio();
 			
-			if (leftLeg.overallExtensionRatio > constants.MaximumOverallExtension) {
+			if (leftLeg.overallExtensionRatio > Constants.MaximumOverallExtension) {
 				
 				leftFootHoldContactPoint.y -= tD;
 				
@@ -1793,7 +1793,7 @@ class Climber extends Applet {
 				}
 			}
 			
-			if (rightLeg.overallExtensionRatio > constants.MaximumOverallExtension) {
+			if (rightLeg.overallExtensionRatio > Constants.MaximumOverallExtension) {
 				
 				rightFootHoldContactPoint.y -= tD;
 				
@@ -1812,7 +1812,7 @@ class Climber extends Applet {
 			pauseForAnimationTiming();
 		}
 		
-		leftLeg.moveLimbToPointOverrideable(new Point(Math.round(leftShoulderSocketPos.x - (30 * constants.SizeFactor)), 0), false);
+		leftLeg.moveLimbToPointOverrideable(new Point(Math.round(leftShoulderSocketPos.x - (30 * Constants.SizeFactor)), 0), false);
 		leftLeg.isConnectedToSomething = true;
 		
 		while(rightLeg.getWallConnectionBodyPartPoint().y > 0) {
@@ -1889,20 +1889,20 @@ class Climber extends Applet {
 		rightShoulderSocketPos.x = Math.round(leftShoulderSocketPos.x + shoulderSocketSpan);
 		rightShoulderSocketPos.y = leftShoulderSocketPos.y;
 		
-		leftWaistDrawingPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan * constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
-		leftWaistDrawingPoint.y = Math.round(leftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
-		rightWaistDrawingPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan * constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
-		rightWaistDrawingPoint.y = Math.round(rightShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		leftWaistDrawingPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan * Constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
+		leftWaistDrawingPoint.y = Math.round(leftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		rightWaistDrawingPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan * Constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
+		rightWaistDrawingPoint.y = Math.round(rightShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
 		
 		leftLatTorsoInsertionPoint.x = leftWaistDrawingPoint.x;
-		leftLatTorsoInsertionPoint.y = Math.round(leftWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
+		leftLatTorsoInsertionPoint.y = Math.round(leftWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * Constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
 		rightLatTorsoInsertionPoint.x = rightWaistDrawingPoint.x;
-		rightLatTorsoInsertionPoint.y = Math.round(rightWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
+		rightLatTorsoInsertionPoint.y = Math.round(rightWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * Constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
 		
 		leftTrapNeckIntersectionPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan/2 - neckThickness/2));
-		leftTrapNeckIntersectionPoint.y = Math.round(leftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		leftTrapNeckIntersectionPoint.y = Math.round(leftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		rightTrapNeckIntersectionPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan/2 - neckThickness/2));
-		rightTrapNeckIntersectionPoint.y = Math.round(rightShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		rightTrapNeckIntersectionPoint.y = Math.round(rightShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		
 		beltBucklePos = CommonAlgorithms.findMidpoint(leftWaistDrawingPoint, rightWaistDrawingPoint);
 		pelvisCenterPos.x = beltBucklePos.x;
@@ -1926,15 +1926,15 @@ class Climber extends Applet {
 		rightInnerPelvisHinge.y = inseam.y;
 		
 		torsoCOG.x = beltBucklePos.x;
-		torsoCOG.y = Math.round(leftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
+		torsoCOG.y = Math.round(leftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * Constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
 	}
 
 	void updateCurrentHipBox() {
 		
 		leftUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - (footLength + (upperArmWidth/2)), torsoCOG.y);
 		rightUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + (footLength + (upperArmWidth/2)), torsoCOG.y);
-		Point lowerRightHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor));
-		Point lowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor));
+		Point lowerRightHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor));
+		Point lowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor));
 		
 		Path2D.Float hipBoxShape = new Path2D.Float();
 		
@@ -1951,8 +1951,8 @@ class Climber extends Applet {
 		
 		prospectiveLeftUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - (footLength + (upperArmWidth/2)), prospectiveTorsoCOG.y);
 		prospectiveRightUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + (footLength + (upperArmWidth/2)), prospectiveTorsoCOG.y);
-		Point prospectiveLowerRightHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor));
-		Point prospectiveLowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (constants.HoldDiameter * constants.SizeFactor));
+		Point prospectiveLowerRightHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor));
+		Point prospectiveLowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (Constants.HoldDiameter * Constants.SizeFactor));
 		
 		Path2D.Float prospectiveHipBoxShape = new Path2D.Float();
 		
@@ -2205,7 +2205,7 @@ class Climber extends Applet {
 		prospectiveRightShoulderSocketPos.y = prospectiveLeftShoulderSocketPos.y;
 		
 		prospectiveBeltBucklePos.x = Math.round(prospectiveLeftShoulderSocketPos.x + (shoulderSocketSpan/2));
-		prospectiveBeltBucklePos.y = Math.round(prospectiveLeftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		prospectiveBeltBucklePos.y = Math.round(prospectiveLeftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
 		
 		prospectivePelvisCenterPos.x = prospectiveBeltBucklePos.x;
 		prospectivePelvisCenterPos.y = Math.round(prospectiveBeltBucklePos.y + beltBuckleToCenterPelvisDistance);
@@ -2218,10 +2218,10 @@ class Climber extends Applet {
 		Point prospectiveLeftTrapNeckIntersectionPoint = new Point();
 		
 		prospectiveLeftTrapNeckIntersectionPoint.x = Math.round(prospectiveLeftShoulderSocketPos.x + (shoulderSocketSpan/2 - neckThickness/2));
-		prospectiveLeftTrapNeckIntersectionPoint.y = Math.round(prospectiveLeftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		prospectiveLeftTrapNeckIntersectionPoint.y = Math.round(prospectiveLeftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * Constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		
 		prospectiveTorsoCOG.x = prospectiveBeltBucklePos.x;
-		prospectiveTorsoCOG.y = Math.round(prospectiveLeftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
+		prospectiveTorsoCOG.y = Math.round(prospectiveLeftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * Constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
 	}
 	
 	void updateProspectiveLeftHumerusOrientationBasedOnProspectiveTorsoMove() throws LimbMustMoveFirstException {
@@ -2438,7 +2438,7 @@ class Climber extends Applet {
 	
 	Point findAnklePointFromFootPoint(Point footStandingPoint, boolean isLeftSide) {
 		
-		float anklePointDeltaX = ((footLength * constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe));
+		float anklePointDeltaX = ((footLength * Constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe));
 		if (isLeftSide) {anklePointDeltaX = anklePointDeltaX * (-1);}
 		
 		float anklePointDeltaY = footHeight;
@@ -2916,7 +2916,7 @@ class Climber extends Applet {
 		headVisualCenter = CommonAlgorithms.findMidpoint(headBasePos, headTopPos);
 		headDrawingPoint = calculateCircleDrawingPoint(headVisualCenter, headRadius);
 		neckDrawingPoint.x = Math.round(neckBaseBetweenShoulderSocketsPos.x -(neckThickness/2));
-		neckDrawingPoint.y = Math.round(neckBaseBetweenShoulderSocketsPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius)));		
+		neckDrawingPoint.y = Math.round(neckBaseBetweenShoulderSocketsPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * Constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius)));		
 	}
 	
 	void updateAllDrawingPoints () {
@@ -2931,7 +2931,7 @@ class Climber extends Applet {
 		
 		while (!wallHasDrawnTheLatestClimberMoves) {
 			try {
-				Thread.sleep(constants.MovementPromptPauseLength);
+				Thread.sleep(Constants.MovementPromptPauseLength);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -2962,7 +2962,7 @@ class Climber extends Applet {
 		Path2D.Double torsoShirt;
 		
 		//paint hands
-		g2d.setPaint(constants.SkinTone);
+		g2d.setPaint(Constants.SkinTone);
 		g2d.fill(new Ellipse2D.Float(leftHandDrawingPoint.x,leftHandDrawingPoint.y,2 * handRadius, 2 * handRadius));
 		g2d.fill(new Ellipse2D.Float(rightHandDrawingPoint.x,rightHandDrawingPoint.y,2 * handRadius,2 * handRadius));
 		
@@ -3014,8 +3014,8 @@ class Climber extends Applet {
 		g2d.fill(rightFoot);
 		
 		//paint rope
-		g2d.setPaint(constants.RopeColor);
-		g2d.setStroke(new BasicStroke(constants.RopeDiameter * constants.SizeFactor));
+		g2d.setPaint(Constants.RopeColor);
+		g2d.setStroke(new BasicStroke(Constants.RopeDiameter * Constants.SizeFactor));
 		g2d.drawLine(anchorPoint.x, anchorPoint.y, beltBucklePos.x, beltBucklePos.y);
 		
 		g2d.setStroke(new BasicStroke());
@@ -3064,7 +3064,7 @@ class Climber extends Applet {
 		upperBodyLimbsArea.add(new Area(new Ellipse2D.Float(leftElbowDrawingPoint.x, leftElbowDrawingPoint.y, elbowWidth, elbowWidth)));
 		upperBodyLimbsArea.add(new Area(new Ellipse2D.Float(rightElbowDrawingPoint.x, rightElbowDrawingPoint.y, elbowWidth, elbowWidth)));
 		
-		g2d.setPaint(constants.ShirtColor);
+		g2d.setPaint(Constants.ShirtColor);
 		g2d.fill(upperBodyLimbsArea);
 				
 		//paint pants
@@ -3123,15 +3123,15 @@ class Climber extends Applet {
 		lowerBodyArea.add(new Area(new Ellipse2D.Float(leftKneeDrawingPoint.x, leftKneeDrawingPoint.y, kneeWidth, kneeWidth)));
 		lowerBodyArea.add(new Area(new Ellipse2D.Float(rightKneeDrawingPoint.x, rightKneeDrawingPoint.y, kneeWidth, kneeWidth)));
 
-		g2d.setPaint(constants.PantsColor);
+		g2d.setPaint(Constants.PantsColor);
 		g2d.fill(lowerBodyArea);
 		
 		//paint neck
-		g2d.setPaint(constants.SkinTone);
-		g2d.fill(new Rectangle2D.Float(neckDrawingPoint.x, neckDrawingPoint.y, neckThickness, (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius))));
+		g2d.setPaint(Constants.SkinTone);
+		g2d.fill(new Rectangle2D.Float(neckDrawingPoint.x, neckDrawingPoint.y, neckThickness, (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * Constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius))));
 		
 		//paint head
-		g2d.setPaint(constants.HairColor);
+		g2d.setPaint(Constants.HairColor);
 		g2d.fill(new Ellipse2D.Float(headDrawingPoint.x,headDrawingPoint.y,(2 * headRadius),(2 * headRadius)));
 	
 		//paint torso element of shirt
@@ -3147,7 +3147,7 @@ class Climber extends Applet {
 		torsoShirt.closePath();
 		shirtTorsoArea = new Area(torsoShirt);
 	
-		g2d.setPaint(constants.ShirtColor);
+		g2d.setPaint(Constants.ShirtColor);
 		g2d.fill(shirtTorsoArea);
 
 	}

@@ -30,7 +30,7 @@ class ClimbingWall extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static float Pi = constants.Pi;
+	private static float Pi = Constants.Pi;
 	
 	public static int heightOfWall;
 	
@@ -65,7 +65,7 @@ class ClimbingWall extends JPanel {
 		
 		setOfUserEnteredHolds = new SetOfHolds<ClimbingHold>();
 		
-		setBackground(constants.WallColor);
+		setBackground(Constants.WallColor);
 		
 		initializeWall();
 		
@@ -168,19 +168,19 @@ class ClimbingWall extends JPanel {
 		int xValueForMouseClick = e.getX();
 		int yValueForMouseClick = e.getY();
 		
-		if (xValueForMouseClick < constants.XValueForStartButtonLeftBorder) {
+		if (xValueForMouseClick < Constants.XValueForStartButtonLeftBorder) {
 			return false;
 		}
 		
-		if (xValueForMouseClick > constants.XValueForStartButtonLeftBorder + constants.WidthOfStartButton) {
+		if (xValueForMouseClick > Constants.XValueForStartButtonLeftBorder + Constants.WidthOfStartButton) {
 			return false;
 		}
 		
-		if (yValueForMouseClick < constants.YValueForStartButtonUpperBorder) {
+		if (yValueForMouseClick < Constants.YValueForStartButtonUpperBorder) {
 			return false;
 		}
 		
-		if (yValueForMouseClick > constants.YValueForStartButtonUpperBorder + constants.HeightOfStartButton) {
+		if (yValueForMouseClick > Constants.YValueForStartButtonUpperBorder + Constants.HeightOfStartButton) {
 			return false;
 		}
 		
@@ -220,19 +220,19 @@ class ClimbingWall extends JPanel {
 		int xValueForMouseClick = e.getX();
 		int yValueForMouseClick = e.getY();
 		
-		if (xValueForMouseClick < constants.XValueForResetButtonLeftBorder) {
+		if (xValueForMouseClick < Constants.XValueForResetButtonLeftBorder) {
 			return false;
 		}
 		
-		if (xValueForMouseClick > constants.XValueForResetButtonLeftBorder + constants.WidthOfResetButton) {
+		if (xValueForMouseClick > Constants.XValueForResetButtonLeftBorder + Constants.WidthOfResetButton) {
 			return false;
 		}
 		
-		if (yValueForMouseClick < constants.YValueForResetButtonUpperBorder) {
+		if (yValueForMouseClick < Constants.YValueForResetButtonUpperBorder) {
 			return false;
 		}
 		
-		if (yValueForMouseClick > constants.YValueForResetButtonUpperBorder + constants.HeightOfResetButton) {
+		if (yValueForMouseClick > Constants.YValueForResetButtonUpperBorder + Constants.HeightOfResetButton) {
 			return false;
 		}
 		
@@ -249,7 +249,7 @@ class ClimbingWall extends JPanel {
 		showingInitialInstructions = true;
 		
 		try {
-			Thread.sleep((1000/constants.DisplayTickRate) + 1);
+			Thread.sleep((1000/Constants.DisplayTickRate) + 1);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
@@ -292,7 +292,7 @@ class ClimbingWall extends JPanel {
 			int animationLoop = 0;
 			
 			int indexOfHoldToMakeVisible = 0;
-			int numberOfTicksPerHoldVisibilityChange = (int) (constants.DisplayTickRate/constants.numberOfHoldsToDisplayPerSecondOnIntroductionScreen);
+			int numberOfTicksPerHoldVisibilityChange = (int) (Constants.DisplayTickRate/Constants.numberOfHoldsToDisplayPerSecondOnIntroductionScreen);
 			
 			while(displayingIntroduction) {						
 				
@@ -304,13 +304,13 @@ class ClimbingWall extends JPanel {
 					
 				}
 				
-				if (!requestForAssistanceVisible && (animationLoop > (constants.DisplayTickRate * 3))) {
+				if (!requestForAssistanceVisible && (animationLoop > (Constants.DisplayTickRate * 3))) {
 					
 					requestForAssistanceVisible = true;
 					
 				}
 				
-				if (!startButtonVisible && (animationLoop > (constants.DisplayTickRate * 4))) {
+				if (!startButtonVisible && (animationLoop > (Constants.DisplayTickRate * 4))) {
 					
 					startButtonVisible = true;
 					
@@ -319,7 +319,7 @@ class ClimbingWall extends JPanel {
 				animationLoop++;
 				
 				try {
-					Thread.sleep(1000/constants.DisplayTickRate);
+					Thread.sleep(1000/Constants.DisplayTickRate);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -350,26 +350,26 @@ class ClimbingWall extends JPanel {
 		
 		float lengthOfPerpendicularSegment;
 		
-		currentWholeSegmentStartingPoint.x = Math.round(constants.WidthOfBufferZoneForRandomHoldGeneration + (rand.nextFloat() * (constants.WallWidth - (2 * constants.WidthOfBufferZoneForRandomHoldGeneration)))); 
+		currentWholeSegmentStartingPoint.x = Math.round(Constants.WidthOfBufferZoneForRandomHoldGeneration + (rand.nextFloat() * (Constants.WallWidth - (2 * Constants.WidthOfBufferZoneForRandomHoldGeneration)))); 
 		currentWholeSegmentStartingPoint.y = heightOfWall;
 		
 		while (currentWholeSegmentStartingPoint.y > 0) {
 			
-			if (currentWholeSegmentStartingPoint.x < constants.WidthOfBufferZoneForRandomHoldGeneration) {
+			if (currentWholeSegmentStartingPoint.x < Constants.WidthOfBufferZoneForRandomHoldGeneration) {
 				
-				radianSlopeOfSegment = (Pi/2) - (rand.nextFloat() * constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
+				radianSlopeOfSegment = (Pi/2) - (rand.nextFloat() * Constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
 				
-			} else if (currentWholeSegmentStartingPoint.x > (constants.WallWidth - constants.WidthOfBufferZoneForRandomHoldGeneration)) {
+			} else if (currentWholeSegmentStartingPoint.x > (Constants.WallWidth - Constants.WidthOfBufferZoneForRandomHoldGeneration)) {
 			
-				radianSlopeOfSegment = (Pi/2) + (rand.nextFloat() * constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
+				radianSlopeOfSegment = (Pi/2) + (rand.nextFloat() * Constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
 				
 			} else {	
 			
-				radianSlopeOfSegment = (Pi/2 + constants.RadianLimitOfCentralDirectionforRandomHoldGeneration) - (rand.nextFloat() * (2 * constants.RadianLimitOfCentralDirectionforRandomHoldGeneration)); 
+				radianSlopeOfSegment = (Pi/2 + Constants.RadianLimitOfCentralDirectionforRandomHoldGeneration) - (rand.nextFloat() * (2 * Constants.RadianLimitOfCentralDirectionforRandomHoldGeneration)); 
 			
 			}	
 				
-			lengthOfCurrentWholeSegment = constants.DistanceLimitOfWholeSegmentOfCentralDirectionForRandomHoldGeneration * rand.nextFloat();
+			lengthOfCurrentWholeSegment = Constants.DistanceLimitOfWholeSegmentOfCentralDirectionForRandomHoldGeneration * rand.nextFloat();
 			
 			currentWholeSegmentEndingPoint = CommonAlgorithms.shiftBySlopeAsRadians(currentWholeSegmentStartingPoint, lengthOfCurrentWholeSegment, radianSlopeOfSegment, true);
 			
@@ -377,11 +377,11 @@ class ClimbingWall extends JPanel {
 			
 			while (lengthOfCurrentPartialSegment < lengthOfCurrentWholeSegment) {
 				
-				lengthOfCurrentPartialSegment += rand.nextFloat() * constants.DistanceLimitOfPartialSegmentOfCentralDirectionForRandomHoldGeneration;
+				lengthOfCurrentPartialSegment += rand.nextFloat() * Constants.DistanceLimitOfPartialSegmentOfCentralDirectionForRandomHoldGeneration;
 				
 				currentPartialSegmentEndingPoint = CommonAlgorithms.shiftBySlopeAsRadians(currentWholeSegmentStartingPoint, lengthOfCurrentPartialSegment, radianSlopeOfSegment, true);
 				
-				lengthOfPerpendicularSegment = rand.nextFloat() * constants.DistanceLimitOfSegmentUsedToPlaceHoldPerpendicularToCentralDirectionForRandomHoldGeneration;
+				lengthOfPerpendicularSegment = rand.nextFloat() * Constants.DistanceLimitOfSegmentUsedToPlaceHoldPerpendicularToCentralDirectionForRandomHoldGeneration;
 											
 				float ninetyDegreesInRandomRotationalDirection;
 				
@@ -442,7 +442,7 @@ class ClimbingWall extends JPanel {
 			
 			someHoldsDoNotHaveEnoughNeighbors = false;
 			
-			interQuadrantGapInDegrees = constants.InterQuadrantGapInDegrees;
+			interQuadrantGapInDegrees = Constants.InterQuadrantGapInDegrees;
 			
 			thereIsAHoldInTheZoneAtTheBottomOfTheWall = true;
 			thereIsAHoldInTheZoneAtTheTopOfTheWall = true;
@@ -459,7 +459,7 @@ class ClimbingWall extends JPanel {
 			
 			ClimbingHold hold = new ClimbingHold(e.getX(),e.getY());
 			
-			if ((!contains(hold)) && (hold.y > 0) && (hold.y < heightOfWall) && (hold.x > 0) && (hold.x < constants.WallWidth)) {
+			if ((!contains(hold)) && (hold.y > 0) && (hold.y < heightOfWall) && (hold.x > 0) && (hold.x < Constants.WallWidth)) {
 				
 				add(latestHold, (T) hold);
 				
@@ -474,7 +474,7 @@ class ClimbingWall extends JPanel {
 			
 			ClimbingHold center = new ClimbingHold(e.getX(), e.getY());
 			
-			if((!contains(center)) && (center.y > 0) && (center.y < heightOfWall) && (center.x > 0) && (center.x < constants.WallWidth)) {
+			if((!contains(center)) && (center.y > 0) && (center.y < heightOfWall) && (center.x > 0) && (center.x < Constants.WallWidth)) {
 				
 				add(latestHold, (T) center);
 				latestHold++;
@@ -483,7 +483,7 @@ class ClimbingWall extends JPanel {
 				return;
 			}
 			
-			int numberOfHoldsToAddOtherThanCenter = constants.NumberOfRandomHoldsInRandomSpray;
+			int numberOfHoldsToAddOtherThanCenter = Constants.NumberOfRandomHoldsInRandomSpray;
 			
 			Area quadrantI = CommonAlgorithms.createQuadrantOfProperHoldSpacingBasedOnReachableRange(center, Direction.UPANDRIGHT, interQuadrantGapInDegrees);
 			Area quadrantII = CommonAlgorithms.createQuadrantOfProperHoldSpacingBasedOnReachableRange(center, Direction.UPANDLEFT, interQuadrantGapInDegrees);
@@ -494,7 +494,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if ((quadrantI.contains(randomHold) || quadrantIII.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < constants.WallWidth)) {
+				if ((quadrantI.contains(randomHold) || quadrantIII.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < Constants.WallWidth)) {
 					
 					add(latestHold, (T) randomHold);
 					latestHold++;
@@ -507,7 +507,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if ((quadrantII.contains(randomHold) || quadrantIV.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < constants.WallWidth)) {
+				if ((quadrantII.contains(randomHold) || quadrantIV.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < Constants.WallWidth)) {
 					
 					add(latestHold, (T) randomHold);
 					latestHold++;
@@ -520,7 +520,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if((!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < constants.WallWidth)) {
+				if((!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < Constants.WallWidth)) {
 					add(latestHold, (T) randomHold);
 					latestHold++;
 				}		
@@ -531,7 +531,7 @@ class ClimbingWall extends JPanel {
 			
 			Random rand = new Random();
 			
-			float randomRadius = ((rand.nextFloat() * (constants.RandomHoldSprayRadius - constants.InterholdDistanceTooClose)) + constants.InterholdDistanceTooClose) * constants.SizeFactor;
+			float randomRadius = ((rand.nextFloat() * (Constants.RandomHoldSprayRadius - Constants.InterholdDistanceTooClose)) + Constants.InterholdDistanceTooClose) * Constants.SizeFactor;
 			float randomDirection = rand.nextFloat() * 2 * Pi;
 			
 			Point randomPoint = CommonAlgorithms.shiftBySlopeAsRadians(centerHold, randomRadius, randomDirection, true);
@@ -547,7 +547,7 @@ class ClimbingWall extends JPanel {
 					
 					float proximity = CommonAlgorithms.findDistance((Point) get(holdIndex), (Point) get(i));
 					
-					if (proximity < constants.InterholdDistanceTooClose * constants.SizeFactor) {
+					if (proximity < Constants.InterholdDistanceTooClose * Constants.SizeFactor) {
 						
 						tooClose = true;
 						repaint();
@@ -579,7 +579,7 @@ class ClimbingWall extends JPanel {
 		void findHoldsInTheZoneAtTheBottomOfTheWall() {
 			
 			float bottomOfWall = heightOfWall;
-			float bottomOfWallZoneBoundary = bottomOfWall - constants.HeightOfBottomOfWallZone * constants.SizeFactor;
+			float bottomOfWallZoneBoundary = bottomOfWall - Constants.HeightOfBottomOfWallZone * Constants.SizeFactor;
 			
 			for(int i = 0; i < size(); i++) {
 				
@@ -593,7 +593,7 @@ class ClimbingWall extends JPanel {
 		
 		void findHoldsInTheZoneAtTheTopOfTheWall() {
 			
-			float topOfWallZoneHeight = constants.HeightOfTopOfWallZone * constants.SizeFactor;
+			float topOfWallZoneHeight = Constants.HeightOfTopOfWallZone * Constants.SizeFactor;
 			
 			for(int i = 0; i < size(); i++) {
 				
@@ -646,7 +646,7 @@ class ClimbingWall extends JPanel {
 		
 		void updateTheHoldsThatAreWithinMaxQuadrantDistance() {
 			
-			float maximumInterholdDistanceForOneHoldToPossiblyBeInQuadrantOfAnotherHold = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
+			float maximumInterholdDistanceForOneHoldToPossiblyBeInQuadrantOfAnotherHold = Constants.MaximumDistanceForProperSpacingInQuadrant * Constants.SizeFactor;
 			
 			for (int i = 0; i < size() - 1; i++) {
 				
@@ -1056,7 +1056,7 @@ class ClimbingWall extends JPanel {
 			while(wallClimber.isClimberOnTheWall() && wallClimber.isClimberTryingToClimb()) {						
 		
 				try {
-					Thread.sleep(1000/constants.DisplayTickRate);
+					Thread.sleep(1000/Constants.DisplayTickRate);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -1184,19 +1184,19 @@ class ClimbingWall extends JPanel {
 	void drawButtonUserCanPushToBeginRouteSetting (Graphics2D g2d) {
 		
 		g2d.setPaint(Color.black);
-		g2d.drawRect(constants.XValueForStartButtonLeftBorder, constants.YValueForStartButtonUpperBorder, constants.WidthOfStartButton, constants.HeightOfStartButton);
+		g2d.drawRect(Constants.XValueForStartButtonLeftBorder, Constants.YValueForStartButtonUpperBorder, Constants.WidthOfStartButton, Constants.HeightOfStartButton);
 		g2d.setPaint(Color.white);
-		g2d.fillRect(constants.XValueForStartButtonLeftBorder + 1, constants.YValueForStartButtonUpperBorder + 1, constants.WidthOfStartButton - 2, constants.HeightOfStartButton - 2);
+		g2d.fillRect(Constants.XValueForStartButtonLeftBorder + 1, Constants.YValueForStartButtonUpperBorder + 1, Constants.WidthOfStartButton - 2, Constants.HeightOfStartButton - 2);
 		
 		g2d.setPaint(Color.black);
 		g2d.setFont((new Font("SansSerif",1,12)));
-		g2d.drawString("Start Setting a Route", constants.XValueForStartButtonLeftBorder + 15, constants.YValueForStartButtonUpperBorder + 25);
+		g2d.drawString("Start Setting a Route", Constants.XValueForStartButtonLeftBorder + 15, Constants.YValueForStartButtonUpperBorder + 25);
 		
 	}
 	
 	void drawIntroductionHolds (Graphics2D g2d) {
 		
-		float hd = constants.HoldDiameter * constants.SizeFactor;
+		float hd = Constants.HoldDiameter * Constants.SizeFactor;
 		
 		for (ClimbingHold h: setOfIntroductionHolds) {
 			
@@ -1221,21 +1221,21 @@ class ClimbingWall extends JPanel {
 	void drawUserEnteredHoldsBoundriesAndNetworking (Graphics2D g2d) {
 		
 		g2d.setPaint(Color.BLACK);
-		g2d.draw(new Rectangle2D.Float(-1, -1, constants.WallWidth + 2, heightOfWall + 2));
+		g2d.draw(new Rectangle2D.Float(-1, -1, Constants.WallWidth + 2, heightOfWall + 2));
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheTopOfTheWall) {
 			
-			g2d.setPaint(constants.BoundaryDesignationColor);
-			g2d.fill(new Rectangle2D.Float(0, constants.HeightOfTopOfWallZone * constants.SizeFactor, constants.WallWidth + 1, constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
+			g2d.setPaint(Constants.BoundaryDesignationColor);
+			g2d.fill(new Rectangle2D.Float(0, Constants.HeightOfTopOfWallZone * Constants.SizeFactor, Constants.WallWidth + 1, Constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
 		}
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheBottomOfTheWall) {
 
-			g2d.setPaint(constants.BoundaryDesignationColor);
-			g2d.fill(new Rectangle2D.Float(0,(heightOfWall - ((constants.HeightOfBottomOfWallZone * constants.SizeFactor) + constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall)), constants.WallWidth + 1, constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
+			g2d.setPaint(Constants.BoundaryDesignationColor);
+			g2d.fill(new Rectangle2D.Float(0,(heightOfWall - ((Constants.HeightOfBottomOfWallZone * Constants.SizeFactor) + Constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall)), Constants.WallWidth + 1, Constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
 		}
 		
-		float hd = constants.HoldDiameter * constants.SizeFactor;
+		float hd = Constants.HoldDiameter * Constants.SizeFactor;
 		
 		if (!showingWebOfConnections) {
 			
@@ -1269,7 +1269,7 @@ class ClimbingWall extends JPanel {
 						lowQuadrants.add(quadrantIII);
 						lowQuadrants.add(quadrantIV);
 						
-						g2d.setPaint(constants.TransparentBlue);
+						g2d.setPaint(Constants.TransparentBlue);
 						
 						g2d.fill(lowQuadrants);
 					}
@@ -1284,7 +1284,7 @@ class ClimbingWall extends JPanel {
 						highQuadrants.add(quadrantI);
 						highQuadrants.add(quadrantII);
 						
-						g2d.setPaint(constants.TransparentBlue);
+						g2d.setPaint(Constants.TransparentBlue);
 						
 						g2d.fill(highQuadrants);
 					}
@@ -1299,7 +1299,7 @@ class ClimbingWall extends JPanel {
 						lowLeftToHighRightQuadrants.add(quadrantI);
 						lowLeftToHighRightQuadrants.add(quadrantIII);
 						
-						g2d.setPaint(constants.TransparentRed);
+						g2d.setPaint(Constants.TransparentRed);
 						
 						g2d.fill(lowLeftToHighRightQuadrants);
 					}
@@ -1314,7 +1314,7 @@ class ClimbingWall extends JPanel {
 						highLeftToLowRightQuadrants.add(quadrantII);
 						highLeftToLowRightQuadrants.add(quadrantIV);
 						
-						g2d.setPaint(constants.TransparentBlue);
+						g2d.setPaint(Constants.TransparentBlue);
 						
 						g2d.fill(highLeftToLowRightQuadrants);
 					}
@@ -1348,7 +1348,7 @@ class ClimbingWall extends JPanel {
 				}
 			}
 						
-			float limitRadius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
+			float limitRadius = Constants.MaximumDistanceForProperSpacingInQuadrant * Constants.SizeFactor;
 			
 			g2d.setPaint(Color.GRAY);
 			
@@ -1380,13 +1380,13 @@ class ClimbingWall extends JPanel {
 	void drawResetButton(Graphics2D g2d) {
 		
 		g2d.setPaint(Color.black);
-		g2d.drawRect(constants.XValueForResetButtonLeftBorder, constants.YValueForResetButtonUpperBorder, constants.WidthOfResetButton, constants.HeightOfResetButton);
+		g2d.drawRect(Constants.XValueForResetButtonLeftBorder, Constants.YValueForResetButtonUpperBorder, Constants.WidthOfResetButton, Constants.HeightOfResetButton);
 		g2d.setPaint(Color.white);
-		g2d.fillRect(constants.XValueForResetButtonLeftBorder + 1, constants.YValueForResetButtonUpperBorder + 1, constants.WidthOfResetButton - 2, constants.HeightOfResetButton - 2);
+		g2d.fillRect(Constants.XValueForResetButtonLeftBorder + 1, Constants.YValueForResetButtonUpperBorder + 1, Constants.WidthOfResetButton - 2, Constants.HeightOfResetButton - 2);
 		
 		g2d.setPaint(Color.black);
 		g2d.setFont((new Font("SansSerif",1,12)));
-		g2d.drawString("Reset the Wall", constants.XValueForResetButtonLeftBorder + 5, constants.YValueForResetButtonUpperBorder + 17);
+		g2d.drawString("Reset the Wall", Constants.XValueForResetButtonLeftBorder + 5, Constants.YValueForResetButtonUpperBorder + 17);
 		
 	}
 	
@@ -1440,7 +1440,7 @@ class ClimbingWall extends JPanel {
 		
 		if (!wallFinalized && displayingFeedback && !tryingToAddHolds) {
 			
-			g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(textStartingWidth - 5, textStartingHeight - 21, textBoxWidth, textBoxHeight);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
@@ -1464,7 +1464,7 @@ class ClimbingWall extends JPanel {
 	
 	void requestUserForAChallenge (ArrayList<ClimbingHold> al, Graphics2D g2d) {
 		
-		g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(45, 169, 300, 60);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -1478,11 +1478,11 @@ class ClimbingWall extends JPanel {
 			
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheTopOfTheWall) {
 			
-			g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(45, 49, 350, 60);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(constants.BoundaryDesignationColor);
+			g2d.setColor(Constants.BoundaryDesignationColor);
 			
 			g2d.drawString("I'm not sure I'll be able to reach the top.", 50, 70);
 			g2d.drawString("Please add at least one hold above the line.", 50, 100);
@@ -1490,11 +1490,11 @@ class ClimbingWall extends JPanel {
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheBottomOfTheWall) {
 			
-			g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(45, (heightOfWall - 121), 350, 60);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(constants.BoundaryDesignationColor);
+			g2d.setColor(Constants.BoundaryDesignationColor);
 			
 			g2d.drawString("I won't be able to start on these high holds.", 50, (heightOfWall - 100));
 			g2d.drawString("Please add at least one hold below the line.", 50, (heightOfWall - 70));
@@ -1505,19 +1505,19 @@ class ClimbingWall extends JPanel {
 
 		if (tryingToAddHolds) {
 			
-			g2d.setPaint(constants.ClearestTransparentWallColor);
+			g2d.setPaint(Constants.ClearestTransparentWallColor);
 			g2d.fillRect(15, 239, 550, 330);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(constants.TransparentNeedCloserHoldsColor);
+			g2d.setColor(Constants.TransparentNeedCloserHoldsColor);
 		
 		} else {
 			
-			g2d.setPaint(constants.MediumTransparentWallColor);
+			g2d.setPaint(Constants.MediumTransparentWallColor);
 			g2d.fillRect(15, 239, 550, 330);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(constants.OpaqueNeedCloserHoldsColor);
+			g2d.setColor(Constants.OpaqueNeedCloserHoldsColor);
 			
 		}
 			
@@ -1539,11 +1539,11 @@ class ClimbingWall extends JPanel {
 	
 	void promptForFinalApprovalOfHolds(Graphics2D g2d) {
 		
-		g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(95, heightOfWall/2 - 121, 300, 200);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
-		g2d.setColor(constants.FinalizeHoldsConfirmationTextColor);
+		g2d.setColor(Constants.FinalizeHoldsConfirmationTextColor);
 		
 		g2d.drawString("This looks good to me.", 100, heightOfWall/2 - 100);
 		
@@ -1557,7 +1557,7 @@ class ClimbingWall extends JPanel {
 	
 	void showMessageOfAcceptanceOfDefeat(Graphics2D g2d) {
 	
-		g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(35, 79, 410, 85);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -1570,7 +1570,7 @@ class ClimbingWall extends JPanel {
 		
 	void showFinalMessageOfAppreciation(Graphics2D g2d) {
 		
-		g2d.setPaint(constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(Constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(35, (heightOfWall/2) - 21, 400, 175);
 				
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -1585,18 +1585,18 @@ class ClimbingWall extends JPanel {
 	
 	void paintOverAreaOutsideOfWall(Graphics2D g2d) {
 		
-		g2d.setPaint (constants.WallColor);
+		g2d.setPaint (Constants.WallColor);
 		
-		g2d.fillRect (0, heightOfWall + 2, constants.WallWidth + 1, heightOfWall);
-		g2d.fillRect (constants.WallWidth + 2, 0, constants.WallWidth, heightOfWall + 1);
+		g2d.fillRect (0, heightOfWall + 2, Constants.WallWidth + 1, heightOfWall);
+		g2d.fillRect (Constants.WallWidth + 2, 0, Constants.WallWidth, heightOfWall + 1);
 		
 	}
 	
 	public Dimension getPreferredSize () {
-		return new Dimension(constants.WallWidth,heightOfWall);
+		return new Dimension(Constants.WallWidth,heightOfWall);
 	}
 	
 	public Dimension getMinimumSize () {
-		return new Dimension(constants.WallWidth,heightOfWall);
+		return new Dimension(Constants.WallWidth,heightOfWall);
 	}
 }
