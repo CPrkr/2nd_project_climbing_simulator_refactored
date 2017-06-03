@@ -865,14 +865,6 @@ class Climber extends Applet {
 		abstract void moveLimbToUnjammedWaypointFirst(Point ultimateDestinationPoint, boolean connectToWallAfterMakingMove);
 	}
 	
-	interface Left {
-
-	}
-	
-	interface Right {
-
-	}
-	
 	class LeftArm extends Arm implements Left {
 		
 		LeftArm() {
