@@ -23,13 +23,13 @@ class CommonAlgorithms {
 	
 	//II. METHODS TO DETERMINE POSITIONING INFORMATION
 	
-	static Point averageThePointsInAnArea(ClimbingWall.SetOfHolds<ClimbingWall.ClimbingHold> setOfHolds, Area containingArea) {
+	static Point averageThePointsInAnArea(ClimbingWall.SetOfHolds<ClimbingHold> setOfHolds, Area containingArea) {
 		
 		int holdsInArea = 0;
 		int totalX = 0;
 		int totalY = 0;
 		
-		for (ClimbingWall.ClimbingHold h : setOfHolds) {
+		for (ClimbingHold h : setOfHolds) {
 			
 			if (containingArea.contains(h)) {
 				
@@ -173,7 +173,7 @@ class CommonAlgorithms {
 		return shiftBySlopeAsRadians(startingPoint, reachDistance, radialDirection, true);
 	}
 	
-	static Area createQuadrantOfProperHoldSpacingBasedOnReachableRange(ClimbingWall.ClimbingHold h, Direction dir, float interQuadrantGapFormattedAsDegreesInFloat) {			
+	static Area createQuadrantOfProperHoldSpacingBasedOnReachableRange(ClimbingHold h, Direction dir, float interQuadrantGapFormattedAsDegreesInFloat) {			
 		
 		float outerRadius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
 		float innerRadius = constants.MinimumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
@@ -214,7 +214,7 @@ class CommonAlgorithms {
 		return outerArc;
 	}
 	
-	static Area createQuadrantForDeterminingBorderHolds(ClimbingWall.ClimbingHold h, Direction dir) {			
+	static Area createQuadrantForDeterminingBorderHolds(ClimbingHold h, Direction dir) {			
 		
 		float radius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
 		

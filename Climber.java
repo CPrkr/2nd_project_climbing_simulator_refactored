@@ -42,7 +42,7 @@ class Climber extends Applet {
 	private boolean hasReachedDestinationPointThatWasBeyondSeeminglyImpossiblePosition;
 	private boolean iAmTryingToClimb;
 	
-	private ClimbingWall.SetOfHolds<ClimbingWall.ClimbingHold> finalizedSetOfUserEnteredHolds;
+	private ClimbingWall.SetOfHolds<ClimbingHold> finalizedSetOfUserEnteredHolds;
 	
 	private Point anchorPoint;
 	
@@ -1630,7 +1630,7 @@ class Climber extends Applet {
 	@SuppressWarnings("unchecked")
 	void receiveMessageThatTheWallIsReadyForClimber(ClimbingWall cw) {
 		
-		finalizedSetOfUserEnteredHolds = (ClimbingWall.SetOfHolds<ClimbingWall.ClimbingHold>) cw.setOfUserEnteredHolds.clone();
+		finalizedSetOfUserEnteredHolds = (ClimbingWall.SetOfHolds<ClimbingHold>) cw.setOfUserEnteredHolds.clone();
 		
 		findMostEfficientPathsUpTheWallThroughTheHoldPoints();
 		
@@ -2780,7 +2780,7 @@ class Climber extends Applet {
 	
 	void clearLimbUsageRecordForHoldsInCurrentReachableAreaAggregate() {
 		
-		for (ClimbingWall.ClimbingHold h : finalizedSetOfUserEnteredHolds) {
+		for (ClimbingHold h : finalizedSetOfUserEnteredHolds) {
 			
 			if (currentReachableAreaAggregate.contains(h)) {
 				
