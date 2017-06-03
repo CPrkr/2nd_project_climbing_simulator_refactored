@@ -7,7 +7,7 @@ import java.awt.geom.Rectangle2D;
 
 class CommonAlgorithms {
 	
-	static float Pi = ClimbingSimulatorRefactored.constants.Pi;
+	static float Pi = constants.Pi;
 	
 	//I. BASIC CALCULATIONS
 	
@@ -175,8 +175,8 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantOfProperHoldSpacingBasedOnReachableRange(ClimbingWall.ClimbingHold h, Direction dir, float interQuadrantGapFormattedAsDegreesInFloat) {			
 		
-		float outerRadius = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
-		float innerRadius = ClimbingSimulatorRefactored.constants.MinimumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
+		float outerRadius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
+		float innerRadius = constants.MinimumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		float arcExtent = 90 - (2 * interQuadrantGapFormattedAsDegreesInFloat);
@@ -216,7 +216,7 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantForDeterminingBorderHolds(ClimbingWall.ClimbingHold h, Direction dir) {			
 		
-		float radius = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
+		float radius = constants.MaximumDistanceForProperSpacingInQuadrant * constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		
