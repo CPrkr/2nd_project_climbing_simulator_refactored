@@ -53,35 +53,6 @@ public class ClimbingSimulatorRefactored extends JFrame {
 	}
 }
 
-class LawOfCosinesException extends Exception {
-
-	private static final long serialVersionUID = 1L;
-	
-}
-
-class LimbMustMoveFirstException extends Exception {
-
-		private static final long serialVersionUID = 1L;
-	
-	LimbIdentifier limbIdentifier;
-	
-	public LimbMustMoveFirstException(LimbIdentifier limbIdentifier) {
-		
-		this.limbIdentifier = limbIdentifier;
-	}
-
-	public LimbIdentifier getLimbIdentifier() {
-		
-		return this.limbIdentifier;
-	}
-}
-
-class ImpossibleRouteException extends Exception {
-
-	private static final long serialVersionUID = 1L;
-	
-}
-
 class Climber extends Applet {
 	
 	private static final long serialVersionUID = 1L;
