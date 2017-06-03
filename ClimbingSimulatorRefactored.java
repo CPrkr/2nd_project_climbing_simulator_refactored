@@ -1,12 +1,5 @@
 package com.craigcode.climbing_simulator_refactored;
 
-public class ClimbingSimulatorRefactored {
-
-}
-
-package com.craigcode.climbingSimulator;
-
-
 //Copyright Craig Parker 2016
 
 import java.awt.event.KeyEvent;
@@ -31,11 +24,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
-public class ClimbingSimulator extends JFrame {
+public class ClimbingSimulatorRefactored extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public ClimbingSimulator (String string) {
+	public ClimbingSimulatorRefactored (String string) {
 	
 	}
 
@@ -48,14 +41,14 @@ public class ClimbingSimulator extends JFrame {
 	}
 	
 	private static void createAndShowWall () {
-		ClimbingSimulator cS = new ClimbingSimulator("Climbing Wall Simulator");
-		cS.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ClimbingSimulatorRefactored cSR = new ClimbingSimulatorRefactored("Climbing Wall Simulator");
+		cSR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ClimbingWall cw = new ClimbingWall();
 		
-		cS.add(cw);
-		cS.pack();
-		cS.setVisible(true);
+		cSR.add(cw);
+		cSR.pack();
+		cSR.setVisible(true);
 		cw.requestFocusInWindow();
 
 	}
@@ -193,7 +186,7 @@ public class ClimbingSimulator extends JFrame {
 
 class CommonAlgorithms {
 	
-	static float Pi = ClimbingSimulator.constants.Pi;
+	static float Pi = ClimbingSimulatorRefactored.constants.Pi;
 	
 	//I. BASIC CALCULATIONS
 	
@@ -361,8 +354,8 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantOfProperHoldSpacingBasedOnReachableRange(ClimbingWall.ClimbingHold h, Direction dir, float interQuadrantGapFormattedAsDegreesInFloat) {			
 		
-		float outerRadius = ClimbingSimulator.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulator.constants.SizeFactor;
-		float innerRadius = ClimbingSimulator.constants.MinimumDistanceForProperSpacingInQuadrant * ClimbingSimulator.constants.SizeFactor;
+		float outerRadius = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
+		float innerRadius = ClimbingSimulatorRefactored.constants.MinimumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		float arcExtent = 90 - (2 * interQuadrantGapFormattedAsDegreesInFloat);
@@ -402,7 +395,7 @@ class CommonAlgorithms {
 	
 	static Area createQuadrantForDeterminingBorderHolds(ClimbingWall.ClimbingHold h, Direction dir) {			
 		
-		float radius = ClimbingSimulator.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulator.constants.SizeFactor;
+		float radius = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
 		
 		float arcStartingDegrees = 0;
 		
@@ -481,7 +474,7 @@ class Climber extends Applet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static float Pi = ClimbingSimulator.constants.Pi;
+	private static float Pi = ClimbingSimulatorRefactored.constants.Pi;
 	
 	private boolean iAmOnTheWall;
 	private boolean iHaveLeftGroundAndConnectedToWallWithAllFourLimbs;
@@ -690,36 +683,36 @@ class Climber extends Applet {
 		iAmOnTheWall = false;
 		iHaveLeftGroundAndConnectedToWallWithAllFourLimbs = false;
 		
-		shoulderSocketSpan = ClimbingSimulator.constants.ShoulderSocketSpan * ClimbingSimulator.constants.SizeFactor;
-		humerusLength = ClimbingSimulator.constants.HumerusLength * ClimbingSimulator.constants.SizeFactor;
-		forearmLength = ClimbingSimulator.constants.ForearmLength * ClimbingSimulator.constants.SizeFactor;
-		torsoHeightFromTopOfTrapsToWaist = ClimbingSimulator.constants.TorsoHeightFromTopOfTrapsToWaist * ClimbingSimulator.constants.SizeFactor;
-		beltBuckleToCenterPelvisDistance = ClimbingSimulator.constants.BeltBuckleToCenterOfPelvisBetweenHipSocketsVerticalDistance * ClimbingSimulator.constants.SizeFactor;
-		hipSocketSpan = ClimbingSimulator.constants.HipSocketSpan * ClimbingSimulator.constants.SizeFactor;
-		femurLength = ClimbingSimulator.constants.FemurLength * ClimbingSimulator.constants.SizeFactor;
-		calfLength = ClimbingSimulator.constants.CalfLength * ClimbingSimulator.constants.SizeFactor;
-		footLengthHorizontalFromAnkleToToe = ClimbingSimulator.constants.FootLengthFromAnkle * ClimbingSimulator.constants.SizeFactor;
-		footLength = ClimbingSimulator.constants.FootLength * ClimbingSimulator.constants.SizeFactor;
-		footHeight = ClimbingSimulator.constants.FootHeight * ClimbingSimulator.constants.SizeFactor;
-		headRadius = ClimbingSimulator.constants.HeadRadius * ClimbingSimulator.constants.SizeFactor;
-		distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle = ClimbingSimulator.constants.DistanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.SizeFactor;
-		neckThickness = ClimbingSimulator.constants.NeckThickness * ClimbingSimulator.constants.SizeFactor;
-		upperArmWidth = ClimbingSimulator.constants.UpperArmWidth * ClimbingSimulator.constants.SizeFactor;
-		elbowWidth = ClimbingSimulator.constants.ElbowWidth * ClimbingSimulator.constants.SizeFactor;
-		wristWidth = ClimbingSimulator.constants.WristWidth * ClimbingSimulator.constants.SizeFactor;
-		handRadius = ClimbingSimulator.constants.HandRadius * ClimbingSimulator.constants.SizeFactor;		
-		upperThighWidth = ClimbingSimulator.constants.UpperThighWidth * ClimbingSimulator.constants.SizeFactor;
-		kneeWidth = ClimbingSimulator.constants.KneeWidth * ClimbingSimulator.constants.SizeFactor;
-		ankleWidth = ClimbingSimulator.constants.AnkleWidth * ClimbingSimulator.constants.SizeFactor;
-		waistToInseamCentralVerticalDistance = ClimbingSimulator.constants.WaistToInseamCentralVerticalDistance * ClimbingSimulator.constants.SizeFactor;
-		hipToOuterPelvisCreaseVerticalDistance = ClimbingSimulator.constants.HipToOuterPelvisCreaseVerticalDistance * ClimbingSimulator.constants.SizeFactor;
-		inseamToInnerPelvisCreaseHorizontalDistance = ClimbingSimulator.constants.InseamToInnerPelvisCreaseHorizontalDistance * ClimbingSimulator.constants.SizeFactor;
-		fingerLength = ClimbingSimulator.constants.MiddleFingerLength * ClimbingSimulator.constants.SizeFactor;
-		fingerWidth = ClimbingSimulator.constants.FingerWidth * ClimbingSimulator.constants.SizeFactor;
-		thumbLength = ClimbingSimulator.constants.ThumbLength * ClimbingSimulator.constants.SizeFactor;
-		thumbWidth = ClimbingSimulator.constants.ThumbWidth * ClimbingSimulator.constants.SizeFactor;
+		shoulderSocketSpan = ClimbingSimulatorRefactored.constants.ShoulderSocketSpan * ClimbingSimulatorRefactored.constants.SizeFactor;
+		humerusLength = ClimbingSimulatorRefactored.constants.HumerusLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		forearmLength = ClimbingSimulatorRefactored.constants.ForearmLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		torsoHeightFromTopOfTrapsToWaist = ClimbingSimulatorRefactored.constants.TorsoHeightFromTopOfTrapsToWaist * ClimbingSimulatorRefactored.constants.SizeFactor;
+		beltBuckleToCenterPelvisDistance = ClimbingSimulatorRefactored.constants.BeltBuckleToCenterOfPelvisBetweenHipSocketsVerticalDistance * ClimbingSimulatorRefactored.constants.SizeFactor;
+		hipSocketSpan = ClimbingSimulatorRefactored.constants.HipSocketSpan * ClimbingSimulatorRefactored.constants.SizeFactor;
+		femurLength = ClimbingSimulatorRefactored.constants.FemurLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		calfLength = ClimbingSimulatorRefactored.constants.CalfLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		footLengthHorizontalFromAnkleToToe = ClimbingSimulatorRefactored.constants.FootLengthFromAnkle * ClimbingSimulatorRefactored.constants.SizeFactor;
+		footLength = ClimbingSimulatorRefactored.constants.FootLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		footHeight = ClimbingSimulatorRefactored.constants.FootHeight * ClimbingSimulatorRefactored.constants.SizeFactor;
+		headRadius = ClimbingSimulatorRefactored.constants.HeadRadius * ClimbingSimulatorRefactored.constants.SizeFactor;
+		distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle = ClimbingSimulatorRefactored.constants.DistanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.SizeFactor;
+		neckThickness = ClimbingSimulatorRefactored.constants.NeckThickness * ClimbingSimulatorRefactored.constants.SizeFactor;
+		upperArmWidth = ClimbingSimulatorRefactored.constants.UpperArmWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		elbowWidth = ClimbingSimulatorRefactored.constants.ElbowWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		wristWidth = ClimbingSimulatorRefactored.constants.WristWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		handRadius = ClimbingSimulatorRefactored.constants.HandRadius * ClimbingSimulatorRefactored.constants.SizeFactor;		
+		upperThighWidth = ClimbingSimulatorRefactored.constants.UpperThighWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		kneeWidth = ClimbingSimulatorRefactored.constants.KneeWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		ankleWidth = ClimbingSimulatorRefactored.constants.AnkleWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		waistToInseamCentralVerticalDistance = ClimbingSimulatorRefactored.constants.WaistToInseamCentralVerticalDistance * ClimbingSimulatorRefactored.constants.SizeFactor;
+		hipToOuterPelvisCreaseVerticalDistance = ClimbingSimulatorRefactored.constants.HipToOuterPelvisCreaseVerticalDistance * ClimbingSimulatorRefactored.constants.SizeFactor;
+		inseamToInnerPelvisCreaseHorizontalDistance = ClimbingSimulatorRefactored.constants.InseamToInnerPelvisCreaseHorizontalDistance * ClimbingSimulatorRefactored.constants.SizeFactor;
+		fingerLength = ClimbingSimulatorRefactored.constants.MiddleFingerLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		fingerWidth = ClimbingSimulatorRefactored.constants.FingerWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
+		thumbLength = ClimbingSimulatorRefactored.constants.ThumbLength * ClimbingSimulatorRefactored.constants.SizeFactor;
+		thumbWidth = ClimbingSimulatorRefactored.constants.ThumbWidth * ClimbingSimulatorRefactored.constants.SizeFactor;
 		
-		highestPossibleExtensionFromFootToHand = footHeight + calfLength + femurLength + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)) + humerusLength + forearmLength + handRadius;
+		highestPossibleExtensionFromFootToHand = footHeight + calfLength + femurLength + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)) + humerusLength + forearmLength + handRadius;
 		widestPossibleExtensionFromHandToHand = shoulderSocketSpan + (2 * (humerusLength + forearmLength + handRadius)); 
 		
 		leftArm = new LeftArm();
@@ -1010,7 +1003,7 @@ class Climber extends Applet {
 				disconnectFromWall();
 			}
 			
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, ClimbingSimulator.constants.LimbMovementIncrement * ClimbingSimulator.constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, ClimbingSimulatorRefactored.constants.LimbMovementIncrement * ClimbingSimulatorRefactored.constants.SizeFactor);
 			
 			Point waypoint = getWallConnectionBodyPartPoint();
 					
@@ -1035,7 +1028,7 @@ class Climber extends Applet {
 				disconnectFromWall();
 			}
 			
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, ClimbingSimulator.constants.LimbMovementIncrement * ClimbingSimulator.constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(getWallConnectionBodyPartPoint(), destinationPoint, ClimbingSimulatorRefactored.constants.LimbMovementIncrement * ClimbingSimulatorRefactored.constants.SizeFactor);
 			
 			Point waypoint = getWallConnectionBodyPartPoint();
 					
@@ -1116,11 +1109,11 @@ class Climber extends Applet {
 			
 			if(isLeft()) {
 
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (1 * ClimbingSimulator.constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * ClimbingSimulator.constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (1 * ClimbingSimulatorRefactored.constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * ClimbingSimulatorRefactored.constants.SizeFactor))), false);
 				
 			} else {
 
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (1 * ClimbingSimulator.constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * ClimbingSimulator.constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (1 * ClimbingSimulatorRefactored.constants.SizeFactor)), (getProximalStartPointForLimb().y + (55 * ClimbingSimulatorRefactored.constants.SizeFactor))), false);
 			}
 		}
 		
@@ -1144,9 +1137,9 @@ class Climber extends Applet {
 			Shape otherSideOfBody;
 			
 			if (isLeft()) {
-				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x + (ClimbingSimulator.constants.ShoulderSocketSpan * ClimbingSimulator.constants.SizeFactor), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
+				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x + (ClimbingSimulatorRefactored.constants.ShoulderSocketSpan * ClimbingSimulatorRefactored.constants.SizeFactor), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
 			} else {
-				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x - ((ClimbingSimulator.constants.ShoulderSocketSpan * ClimbingSimulator.constants.SizeFactor) + maximumReachLength), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
+				otherSideOfBody = new Rectangle2D.Float(shoulderSocket.x - ((ClimbingSimulatorRefactored.constants.ShoulderSocketSpan * ClimbingSimulatorRefactored.constants.SizeFactor) + maximumReachLength), shoulderSocket.y - maximumReachLength, maximumReachLength, 2 * maximumReachLength);
 			}
 	
 			Area areaToSubtract = new Area(otherSideOfBody);
@@ -1180,7 +1173,7 @@ class Climber extends Applet {
 
 		@Override
 		float getReachDistanceContributedByExtremity() {
-			return Math.min(footHeight + ((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor), (footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)); //the second part of this equation could be a bit longer if it took into account the distance between ankle and foot-hold contact point, but reaching that far tends to trigger cramps in the author's feet
+			return Math.min(footHeight + ((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor), (footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)); //the second part of this equation could be a bit longer if it took into account the distance between ankle and foot-hold contact point, but reaching that far tends to trigger cramps in the author's feet
 		}
 		
 		@Override
@@ -1188,11 +1181,11 @@ class Climber extends Applet {
 
 			if(isLeft()) {
 				
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (5 * ClimbingSimulator.constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * ClimbingSimulator.constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x - (5 * ClimbingSimulatorRefactored.constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * ClimbingSimulatorRefactored.constants.SizeFactor))), false);
 
 			} else {
 				
-				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (5 * ClimbingSimulator.constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * ClimbingSimulator.constants.SizeFactor))), false);
+				moveLimbToPointOverrideable(CommonAlgorithms.roundPoint((getProximalStartPointForLimb().x + (5 * ClimbingSimulatorRefactored.constants.SizeFactor)), (getProximalStartPointForLimb().y + (83 * ClimbingSimulatorRefactored.constants.SizeFactor))), false);
 			}
 		}
 		
@@ -1229,24 +1222,24 @@ class Climber extends Applet {
 			Shape otherSideOfBody;
 			Shape legReachArcThatRunsAwayFromPelvisCenter;
 			
-			tooHighForInflexibleClimber = new Rectangle2D.Float(torsoCOG.x - (maximumReachLength + footLength), torsoCOG.y - (maximumReachLength + ((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor)), 2 * (maximumReachLength + footLength), maximumReachLength + ((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor));
+			tooHighForInflexibleClimber = new Rectangle2D.Float(torsoCOG.x - (maximumReachLength + footLength), torsoCOG.y - (maximumReachLength + ((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor)), 2 * (maximumReachLength + footLength), maximumReachLength + ((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor));
 						
 			if (isLeft()) {
-				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), (180.0f - ClimbingSimulator.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint), ClimbingSimulator.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
+				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), (180.0f - ClimbingSimulatorRefactored.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint), ClimbingSimulatorRefactored.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
 			} else {
-				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 0, ClimbingSimulator.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
+				legReachArcThatRisesAwayFromTorso = new Arc2D.Float(upperOuterHipBoxPoint.x - (maximumReachLength + footLength), upperOuterHipBoxPoint.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 0, ClimbingSimulatorRefactored.constants.DegreesOfLegReachHeightGainedAsFootMovesAwayFromUpperOuterHipBoxPoint, Arc2D.PIE);
 			}
 								
 			if (isLeft()) {
-				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), pelvisCenter.y - maximumReachLength, maximumReachLength + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor)));
+				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), pelvisCenter.y - maximumReachLength, maximumReachLength + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor)));
 			} else {
-				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x - maximumReachLength, pelvisCenter.y - maximumReachLength, maximumReachLength - ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor)));
+				otherSideOfBody = new Rectangle2D.Float(pelvisCenter.x - maximumReachLength, pelvisCenter.y - maximumReachLength, maximumReachLength - ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), 2 * (maximumReachLength + ((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor)));
 			}
 			
 			if (isLeft()) {
-				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f, ClimbingSimulator.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
+				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f, ClimbingSimulatorRefactored.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
 			} else {
-				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x - ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f - ClimbingSimulator.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, ClimbingSimulator.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
+				legReachArcThatRunsAwayFromPelvisCenter = new Arc2D.Float((pelvisCenter.x - ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - (maximumReachLength + footLength), pelvisCenter.y - (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 2 * (maximumReachLength + footLength), 270.0f - ClimbingSimulatorRefactored.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, ClimbingSimulatorRefactored.constants.DegreesOfLegReachWidthGainedAsFootMovesAwayFromInseam, Arc2D.PIE);
 			}
 									
 			areaTooHighForInflexibleClimber = new Area(tooHighForInflexibleClimber);
@@ -1411,7 +1404,7 @@ class Climber extends Applet {
 			Point shiftFromBallOfFootToHoldCenter = new Point();
 			
 			shiftFromBallOfFootToHoldCenter.x = leftFootHoldContactPoint.x;
-			shiftFromBallOfFootToHoldCenter.y = Math.round(leftFootHoldContactPoint.y + (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1));
+			shiftFromBallOfFootToHoldCenter.y = Math.round(leftFootHoldContactPoint.y + (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1));
 			
 			return shiftFromBallOfFootToHoldCenter;
 		}
@@ -1423,7 +1416,7 @@ class Climber extends Applet {
 			Point shiftFromHoldCenterToBallOfFoot = new Point();
 			
 			shiftFromHoldCenterToBallOfFoot.x = p.x;
-			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1));
+			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1));
 			
 			leftFootHoldContactPoint = shiftFromHoldCenterToBallOfFoot;
 		}
@@ -1461,7 +1454,7 @@ class Climber extends Applet {
 			updateCurrentHipBox();
 			updateLeftUnjammedFootWaypoint();
 			
-			float distanceFromBottomOfFootToHoldCenter = (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1);
+			float distanceFromBottomOfFootToHoldCenter = (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1);
 			
 			Point prospectiveFootHoldContactPoint = CommonAlgorithms.roundPoint(prospectiveDestinationPoint.x, prospectiveDestinationPoint.y - distanceFromBottomOfFootToHoldCenter);
 			
@@ -1495,7 +1488,7 @@ class Climber extends Applet {
 		
 		void updateLeftUnjammedFootWaypoint() {
 		
-			leftUnjammedFootWaypoint = CommonAlgorithms.roundPoint((leftShoulderSocketPos.x - ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor))) + 1);
+			leftUnjammedFootWaypoint = CommonAlgorithms.roundPoint((leftShoulderSocketPos.x - ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) - 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor))) + 1);
 		}
 		
 		void moveLimbToUnjammedWaypointFirst(Point ultimateDestinationPoint, boolean connectToWallAfterMakingMove) {
@@ -1521,7 +1514,7 @@ class Climber extends Applet {
 			Point shiftFromBallOfFootToHoldCenter = new Point();
 			
 			shiftFromBallOfFootToHoldCenter.x = rightFootHoldContactPoint.x;
-			shiftFromBallOfFootToHoldCenter.y = Math.round(rightFootHoldContactPoint.y + (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1));
+			shiftFromBallOfFootToHoldCenter.y = Math.round(rightFootHoldContactPoint.y + (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1));
 			
 			return shiftFromBallOfFootToHoldCenter;
 		}
@@ -1533,7 +1526,7 @@ class Climber extends Applet {
 			Point shiftFromHoldCenterToBallOfFoot = new Point();
 			
 			shiftFromHoldCenterToBallOfFoot.x = p.x;
-			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1));
+			shiftFromHoldCenterToBallOfFoot.y = Math.round(p.y - (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1));
 			
 			rightFootHoldContactPoint = shiftFromHoldCenterToBallOfFoot;
 		}
@@ -1571,7 +1564,7 @@ class Climber extends Applet {
 			updateCurrentHipBox();
 			updateRightUnjammedFootWaypoint();
 			
-			float distanceFromBottomOfFootToHoldCenter = (((ClimbingSimulator.constants.HoldDiameter/2) * ClimbingSimulator.constants.SizeFactor) - 1);
+			float distanceFromBottomOfFootToHoldCenter = (((ClimbingSimulatorRefactored.constants.HoldDiameter/2) * ClimbingSimulatorRefactored.constants.SizeFactor) - 1);
 			
 			Point prospectiveFootHoldContactPoint = CommonAlgorithms.roundPoint(prospectiveDestinationPoint.x, prospectiveDestinationPoint.y - distanceFromBottomOfFootToHoldCenter);
 			
@@ -1605,7 +1598,7 @@ class Climber extends Applet {
 		
 		void updateRightUnjammedFootWaypoint() {
 			
-			rightUnjammedFootWaypoint = CommonAlgorithms.roundPoint((rightShoulderSocketPos.x + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) + 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor))) + 1);
+			rightUnjammedFootWaypoint = CommonAlgorithms.roundPoint((rightShoulderSocketPos.x + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe))) + 1, (beltBucklePos.y + (waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor))) + 1);
 		}
 		
 		void moveLimbToUnjammedWaypointFirst(Point ultimateDestinationPoint, boolean connectToWallAfterMakingMove) {
@@ -1822,7 +1815,7 @@ class Climber extends Applet {
 			
 			calculateLeftShoulderDestinationBasedOnBeltBuckleDestinationPoint();
 							
-			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, ClimbingSimulator.constants.TorsoMovementIncrement * ClimbingSimulator.constants.SizeFactor);
+			ArrayList<float[]> waypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, ClimbingSimulatorRefactored.constants.TorsoMovementIncrement * ClimbingSimulatorRefactored.constants.SizeFactor);
 
 			Point waypoint = new Point();
 			
@@ -1872,8 +1865,8 @@ class Climber extends Applet {
 			
 			Point destinationOfWallConnectionPointForDisconnectedLimb = new Point(leftShoulderDestination.x - xOffsetBetweenLeftShoulderSocketPosAndDisconnectedLimb, leftShoulderDestination.y - yOffsetBetweenLeftShoulderSocketPosAndDisconnectedLimb);
 	
-			ArrayList<float[]> torsoMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, ClimbingSimulator.constants.TorsoMovementIncrement * ClimbingSimulator.constants.SizeFactor);
-			ArrayList<float[]> disconnectedLimbMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(get(disconnectedLimb).getWallConnectionBodyPartPoint(), destinationOfWallConnectionPointForDisconnectedLimb, ClimbingSimulator.constants.TorsoMovementIncrement * ClimbingSimulator.constants.SizeFactor);
+			ArrayList<float[]> torsoMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(leftShoulderSocketPos, leftShoulderDestination, ClimbingSimulatorRefactored.constants.TorsoMovementIncrement * ClimbingSimulatorRefactored.constants.SizeFactor);
+			ArrayList<float[]> disconnectedLimbMovementWaypointsFormattedAsFloat = calculateWaypointFloatCoordinates(get(disconnectedLimb).getWallConnectionBodyPartPoint(), destinationOfWallConnectionPointForDisconnectedLimb, ClimbingSimulatorRefactored.constants.TorsoMovementIncrement * ClimbingSimulatorRefactored.constants.SizeFactor);
 	
 			Point torsoWaypoint = new Point();
 			Point disconnectedLimbWaypoint = new Point();
@@ -1958,7 +1951,7 @@ class Climber extends Applet {
 		
 		void calculateLeftShoulderDestinationBasedOnBeltBuckleDestinationPoint() {
 			
-			leftShoulderDestination = CommonAlgorithms.roundPoint(desiredDestinationForBeltBuckle.x - (shoulderSocketSpan/2), (desiredDestinationForBeltBuckle.y - (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead))));
+			leftShoulderDestination = CommonAlgorithms.roundPoint(desiredDestinationForBeltBuckle.x - (shoulderSocketSpan/2), (desiredDestinationForBeltBuckle.y - (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead))));
 		}
 		
 		void testEachLimbForViolationOfReachableAreaUponProspectiveTorsoMove() throws LimbMustMoveFirstException {
@@ -2162,17 +2155,17 @@ class Climber extends Applet {
 		leftShoulderSocketPos = CommonAlgorithms.roundPoint((anchorPoint.x - (shoulderSocketSpan/2)), ((-1) * (footHeight + calfLength + femurLength + torsoHeightFromTopOfTrapsToWaist)));
 		updateTorsoPoints();
 				
-		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * ClimbingSimulator.constants.SizeFactor)));
-		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * ClimbingSimulator.constants.SizeFactor)));
-		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * ClimbingSimulator.constants.SizeFactor)), (pelvisCenterPos.y + (66 * ClimbingSimulator.constants.SizeFactor)));
-		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * ClimbingSimulator.constants.SizeFactor)), (pelvisCenterPos.y + (66 * ClimbingSimulator.constants.SizeFactor)));
+		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * ClimbingSimulatorRefactored.constants.SizeFactor)));
+		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * ClimbingSimulatorRefactored.constants.SizeFactor)));
+		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * ClimbingSimulatorRefactored.constants.SizeFactor)), (pelvisCenterPos.y + (66 * ClimbingSimulatorRefactored.constants.SizeFactor)));
+		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * ClimbingSimulatorRefactored.constants.SizeFactor)), (pelvisCenterPos.y + (66 * ClimbingSimulatorRefactored.constants.SizeFactor)));
 		
 		updateAllCriticalPoints();
 	}
 	
 	void lowerClimber() {
 		
-		int tD = Math.round(ClimbingSimulator.constants.LoweringTickDistance * ClimbingSimulator.constants.SizeFactor);
+		int tD = Math.round(ClimbingSimulatorRefactored.constants.LoweringTickDistance * ClimbingSimulatorRefactored.constants.SizeFactor);
 		
 		while(leftFootHoldContactPoint.y < ClimbingWall.heightOfWall) {
 			
@@ -2232,7 +2225,7 @@ class Climber extends Applet {
 		rightArm.moveLimbToPointOverrideable(rightHandTopout, false);
 		rightArm.isConnectedToSomething = true;
 		
-		int tD = Math.round(ClimbingSimulator.constants.ToppingOutDistance * ClimbingSimulator.constants.SizeFactor);
+		int tD = Math.round(ClimbingSimulatorRefactored.constants.ToppingOutDistance * ClimbingSimulatorRefactored.constants.SizeFactor);
 		
 		while (beltBucklePos.y > 0) {
 			
@@ -2241,7 +2234,7 @@ class Climber extends Applet {
 			leftLeg.updateOverallExtensionRatio();
 			rightLeg.updateOverallExtensionRatio();
 			
-			if (leftLeg.overallExtensionRatio > ClimbingSimulator.constants.MaximumOverallExtension) {
+			if (leftLeg.overallExtensionRatio > ClimbingSimulatorRefactored.constants.MaximumOverallExtension) {
 				
 				leftFootHoldContactPoint.y -= tD;
 				
@@ -2251,7 +2244,7 @@ class Climber extends Applet {
 				}
 			}
 			
-			if (rightLeg.overallExtensionRatio > ClimbingSimulator.constants.MaximumOverallExtension) {
+			if (rightLeg.overallExtensionRatio > ClimbingSimulatorRefactored.constants.MaximumOverallExtension) {
 				
 				rightFootHoldContactPoint.y -= tD;
 				
@@ -2270,7 +2263,7 @@ class Climber extends Applet {
 			pauseForAnimationTiming();
 		}
 		
-		leftLeg.moveLimbToPointOverrideable(new Point(Math.round(leftShoulderSocketPos.x - (30 * ClimbingSimulator.constants.SizeFactor)), 0), false);
+		leftLeg.moveLimbToPointOverrideable(new Point(Math.round(leftShoulderSocketPos.x - (30 * ClimbingSimulatorRefactored.constants.SizeFactor)), 0), false);
 		leftLeg.isConnectedToSomething = true;
 		
 		while(rightLeg.getWallConnectionBodyPartPoint().y > 0) {
@@ -2347,20 +2340,20 @@ class Climber extends Applet {
 		rightShoulderSocketPos.x = Math.round(leftShoulderSocketPos.x + shoulderSocketSpan);
 		rightShoulderSocketPos.y = leftShoulderSocketPos.y;
 		
-		leftWaistDrawingPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan * ClimbingSimulator.constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
-		leftWaistDrawingPoint.y = Math.round(leftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
-		rightWaistDrawingPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan * ClimbingSimulator.constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
-		rightWaistDrawingPoint.y = Math.round(rightShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		leftWaistDrawingPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan * ClimbingSimulatorRefactored.constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
+		leftWaistDrawingPoint.y = Math.round(leftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		rightWaistDrawingPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan * ClimbingSimulatorRefactored.constants.LatHorizontalCutInWidthAsRatioOfOverallShoulderSocket));
+		rightWaistDrawingPoint.y = Math.round(rightShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
 		
 		leftLatTorsoInsertionPoint.x = leftWaistDrawingPoint.x;
-		leftLatTorsoInsertionPoint.y = Math.round(leftWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulator.constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
+		leftLatTorsoInsertionPoint.y = Math.round(leftWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulatorRefactored.constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
 		rightLatTorsoInsertionPoint.x = rightWaistDrawingPoint.x;
-		rightLatTorsoInsertionPoint.y = Math.round(rightWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulator.constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
+		rightLatTorsoInsertionPoint.y = Math.round(rightWaistDrawingPoint.y - (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulatorRefactored.constants.LatInsertionPointRatioOfOverallTorsoHeightStartingFromWaist));
 		
 		leftTrapNeckIntersectionPoint.x = Math.round(leftShoulderSocketPos.x + (shoulderSocketSpan/2 - neckThickness/2));
-		leftTrapNeckIntersectionPoint.y = Math.round(leftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		leftTrapNeckIntersectionPoint.y = Math.round(leftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		rightTrapNeckIntersectionPoint.x = Math.round(rightShoulderSocketPos.x - (shoulderSocketSpan/2 - neckThickness/2));
-		rightTrapNeckIntersectionPoint.y = Math.round(rightShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		rightTrapNeckIntersectionPoint.y = Math.round(rightShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		
 		beltBucklePos = CommonAlgorithms.findMidpoint(leftWaistDrawingPoint, rightWaistDrawingPoint);
 		pelvisCenterPos.x = beltBucklePos.x;
@@ -2384,15 +2377,15 @@ class Climber extends Applet {
 		rightInnerPelvisHinge.y = inseam.y;
 		
 		torsoCOG.x = beltBucklePos.x;
-		torsoCOG.y = Math.round(leftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulator.constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
+		torsoCOG.y = Math.round(leftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulatorRefactored.constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
 	}
 
 	void updateCurrentHipBox() {
 		
 		leftUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - (footLength + (upperArmWidth/2)), torsoCOG.y);
 		rightUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + (footLength + (upperArmWidth/2)), torsoCOG.y);
-		Point lowerRightHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor));
-		Point lowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor));
+		Point lowerRightHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor));
+		Point lowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(leftShoulderSocketPos.x - ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), beltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor));
 		
 		Path2D.Float hipBoxShape = new Path2D.Float();
 		
@@ -2409,8 +2402,8 @@ class Climber extends Applet {
 		
 		prospectiveLeftUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - (footLength + (upperArmWidth/2)), prospectiveTorsoCOG.y);
 		prospectiveRightUpperOuterHipBoxPos = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + (footLength + (upperArmWidth/2)), prospectiveTorsoCOG.y);
-		Point prospectiveLowerRightHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor));
-		Point prospectiveLowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor));
+		Point prospectiveLowerRightHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x + shoulderSocketSpan + ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor));
+		Point prospectiveLowerLeftHipBoxVertex = CommonAlgorithms.roundPoint(prospectiveLeftShoulderSocketPos.x - ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe)), prospectiveBeltBucklePos.y + waistToInseamCentralVerticalDistance + footHeight + (ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor));
 		
 		Path2D.Float prospectiveHipBoxShape = new Path2D.Float();
 		
@@ -2663,7 +2656,7 @@ class Climber extends Applet {
 		prospectiveRightShoulderSocketPos.y = prospectiveLeftShoulderSocketPos.y;
 		
 		prospectiveBeltBucklePos.x = Math.round(prospectiveLeftShoulderSocketPos.x + (shoulderSocketSpan/2));
-		prospectiveBeltBucklePos.y = Math.round(prospectiveLeftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
+		prospectiveBeltBucklePos.y = Math.round(prospectiveLeftShoulderSocketPos.y + (torsoHeightFromTopOfTrapsToWaist - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead)));
 		
 		prospectivePelvisCenterPos.x = prospectiveBeltBucklePos.x;
 		prospectivePelvisCenterPos.y = Math.round(prospectiveBeltBucklePos.y + beltBuckleToCenterPelvisDistance);
@@ -2676,10 +2669,10 @@ class Climber extends Applet {
 		Point prospectiveLeftTrapNeckIntersectionPoint = new Point();
 		
 		prospectiveLeftTrapNeckIntersectionPoint.x = Math.round(prospectiveLeftShoulderSocketPos.x + (shoulderSocketSpan/2 - neckThickness/2));
-		prospectiveLeftTrapNeckIntersectionPoint.y = Math.round(prospectiveLeftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulator.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
+		prospectiveLeftTrapNeckIntersectionPoint.y = Math.round(prospectiveLeftShoulderSocketPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle * ClimbingSimulatorRefactored.constants.FactorForDeterminingHeightOfTrapsAgainstSideOfNeckDeterminedAsAFractionOfTheVerticalDistanceFromShoulderLevelToTheBottomOfTheHead));
 		
 		prospectiveTorsoCOG.x = prospectiveBeltBucklePos.x;
-		prospectiveTorsoCOG.y = Math.round(prospectiveLeftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulator.constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
+		prospectiveTorsoCOG.y = Math.round(prospectiveLeftTrapNeckIntersectionPoint.y + (torsoHeightFromTopOfTrapsToWaist * ClimbingSimulatorRefactored.constants.DistanceFromTopOfTrapsToTorsoCOGComparedToDistanceFromTopOfTrapsToWaistRatio));
 	}
 	
 	void updateProspectiveLeftHumerusOrientationBasedOnProspectiveTorsoMove() throws LimbMustMoveFirstException {
@@ -2896,7 +2889,7 @@ class Climber extends Applet {
 	
 	Point findAnklePointFromFootPoint(Point footStandingPoint, boolean isLeftSide) {
 		
-		float anklePointDeltaX = ((footLength * ClimbingSimulator.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe));
+		float anklePointDeltaX = ((footLength * ClimbingSimulatorRefactored.constants.RelativeDistanceFromHeelToBallOfFoot) - (footLength - footLengthHorizontalFromAnkleToToe));
 		if (isLeftSide) {anklePointDeltaX = anklePointDeltaX * (-1);}
 		
 		float anklePointDeltaY = footHeight;
@@ -3374,7 +3367,7 @@ class Climber extends Applet {
 		headVisualCenter = CommonAlgorithms.findMidpoint(headBasePos, headTopPos);
 		headDrawingPoint = calculateCircleDrawingPoint(headVisualCenter, headRadius);
 		neckDrawingPoint.x = Math.round(neckBaseBetweenShoulderSocketsPos.x -(neckThickness/2));
-		neckDrawingPoint.y = Math.round(neckBaseBetweenShoulderSocketsPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * ClimbingSimulator.constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius)));		
+		neckDrawingPoint.y = Math.round(neckBaseBetweenShoulderSocketsPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * ClimbingSimulatorRefactored.constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius)));		
 	}
 	
 	void updateAllDrawingPoints () {
@@ -3389,7 +3382,7 @@ class Climber extends Applet {
 		
 		while (!wallHasDrawnTheLatestClimberMoves) {
 			try {
-				Thread.sleep(ClimbingSimulator.constants.MovementPromptPauseLength);
+				Thread.sleep(ClimbingSimulatorRefactored.constants.MovementPromptPauseLength);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -3420,7 +3413,7 @@ class Climber extends Applet {
 		Path2D.Double torsoShirt;
 		
 		//paint hands
-		g2d.setPaint(ClimbingSimulator.constants.SkinTone);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.SkinTone);
 		g2d.fill(new Ellipse2D.Float(leftHandDrawingPoint.x,leftHandDrawingPoint.y,2 * handRadius, 2 * handRadius));
 		g2d.fill(new Ellipse2D.Float(rightHandDrawingPoint.x,rightHandDrawingPoint.y,2 * handRadius,2 * handRadius));
 		
@@ -3472,8 +3465,8 @@ class Climber extends Applet {
 		g2d.fill(rightFoot);
 		
 		//paint rope
-		g2d.setPaint(ClimbingSimulator.constants.RopeColor);
-		g2d.setStroke(new BasicStroke(ClimbingSimulator.constants.RopeDiameter * ClimbingSimulator.constants.SizeFactor));
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.RopeColor);
+		g2d.setStroke(new BasicStroke(ClimbingSimulatorRefactored.constants.RopeDiameter * ClimbingSimulatorRefactored.constants.SizeFactor));
 		g2d.drawLine(anchorPoint.x, anchorPoint.y, beltBucklePos.x, beltBucklePos.y);
 		
 		g2d.setStroke(new BasicStroke());
@@ -3522,7 +3515,7 @@ class Climber extends Applet {
 		upperBodyLimbsArea.add(new Area(new Ellipse2D.Float(leftElbowDrawingPoint.x, leftElbowDrawingPoint.y, elbowWidth, elbowWidth)));
 		upperBodyLimbsArea.add(new Area(new Ellipse2D.Float(rightElbowDrawingPoint.x, rightElbowDrawingPoint.y, elbowWidth, elbowWidth)));
 		
-		g2d.setPaint(ClimbingSimulator.constants.ShirtColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.ShirtColor);
 		g2d.fill(upperBodyLimbsArea);
 				
 		//paint pants
@@ -3581,15 +3574,15 @@ class Climber extends Applet {
 		lowerBodyArea.add(new Area(new Ellipse2D.Float(leftKneeDrawingPoint.x, leftKneeDrawingPoint.y, kneeWidth, kneeWidth)));
 		lowerBodyArea.add(new Area(new Ellipse2D.Float(rightKneeDrawingPoint.x, rightKneeDrawingPoint.y, kneeWidth, kneeWidth)));
 
-		g2d.setPaint(ClimbingSimulator.constants.PantsColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.PantsColor);
 		g2d.fill(lowerBodyArea);
 		
 		//paint neck
-		g2d.setPaint(ClimbingSimulator.constants.SkinTone);
-		g2d.fill(new Rectangle2D.Float(neckDrawingPoint.x, neckDrawingPoint.y, neckThickness, (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * ClimbingSimulator.constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius))));
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.SkinTone);
+		g2d.fill(new Rectangle2D.Float(neckDrawingPoint.x, neckDrawingPoint.y, neckThickness, (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * ClimbingSimulatorRefactored.constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius))));
 		
 		//paint head
-		g2d.setPaint(ClimbingSimulator.constants.HairColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.HairColor);
 		g2d.fill(new Ellipse2D.Float(headDrawingPoint.x,headDrawingPoint.y,(2 * headRadius),(2 * headRadius)));
 	
 		//paint torso element of shirt
@@ -3605,7 +3598,7 @@ class Climber extends Applet {
 		torsoShirt.closePath();
 		shirtTorsoArea = new Area(torsoShirt);
 	
-		g2d.setPaint(ClimbingSimulator.constants.ShirtColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.ShirtColor);
 		g2d.fill(shirtTorsoArea);
 
 	}
@@ -3615,7 +3608,7 @@ class ClimbingWall extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static float Pi = ClimbingSimulator.constants.Pi;
+	private static float Pi = ClimbingSimulatorRefactored.constants.Pi;
 	
 	public static int heightOfWall;
 	
@@ -3650,7 +3643,7 @@ class ClimbingWall extends JPanel {
 		
 		setOfUserEnteredHolds = new SetOfHolds<ClimbingHold>();
 		
-		setBackground(ClimbingSimulator.constants.WallColor);
+		setBackground(ClimbingSimulatorRefactored.constants.WallColor);
 		
 		initializeWall();
 		
@@ -3753,19 +3746,19 @@ class ClimbingWall extends JPanel {
 		int xValueForMouseClick = e.getX();
 		int yValueForMouseClick = e.getY();
 		
-		if (xValueForMouseClick < ClimbingSimulator.constants.XValueForStartButtonLeftBorder) {
+		if (xValueForMouseClick < ClimbingSimulatorRefactored.constants.XValueForStartButtonLeftBorder) {
 			return false;
 		}
 		
-		if (xValueForMouseClick > ClimbingSimulator.constants.XValueForStartButtonLeftBorder + ClimbingSimulator.constants.WidthOfStartButton) {
+		if (xValueForMouseClick > ClimbingSimulatorRefactored.constants.XValueForStartButtonLeftBorder + ClimbingSimulatorRefactored.constants.WidthOfStartButton) {
 			return false;
 		}
 		
-		if (yValueForMouseClick < ClimbingSimulator.constants.YValueForStartButtonUpperBorder) {
+		if (yValueForMouseClick < ClimbingSimulatorRefactored.constants.YValueForStartButtonUpperBorder) {
 			return false;
 		}
 		
-		if (yValueForMouseClick > ClimbingSimulator.constants.YValueForStartButtonUpperBorder + ClimbingSimulator.constants.HeightOfStartButton) {
+		if (yValueForMouseClick > ClimbingSimulatorRefactored.constants.YValueForStartButtonUpperBorder + ClimbingSimulatorRefactored.constants.HeightOfStartButton) {
 			return false;
 		}
 		
@@ -3805,19 +3798,19 @@ class ClimbingWall extends JPanel {
 		int xValueForMouseClick = e.getX();
 		int yValueForMouseClick = e.getY();
 		
-		if (xValueForMouseClick < ClimbingSimulator.constants.XValueForResetButtonLeftBorder) {
+		if (xValueForMouseClick < ClimbingSimulatorRefactored.constants.XValueForResetButtonLeftBorder) {
 			return false;
 		}
 		
-		if (xValueForMouseClick > ClimbingSimulator.constants.XValueForResetButtonLeftBorder + ClimbingSimulator.constants.WidthOfResetButton) {
+		if (xValueForMouseClick > ClimbingSimulatorRefactored.constants.XValueForResetButtonLeftBorder + ClimbingSimulatorRefactored.constants.WidthOfResetButton) {
 			return false;
 		}
 		
-		if (yValueForMouseClick < ClimbingSimulator.constants.YValueForResetButtonUpperBorder) {
+		if (yValueForMouseClick < ClimbingSimulatorRefactored.constants.YValueForResetButtonUpperBorder) {
 			return false;
 		}
 		
-		if (yValueForMouseClick > ClimbingSimulator.constants.YValueForResetButtonUpperBorder + ClimbingSimulator.constants.HeightOfResetButton) {
+		if (yValueForMouseClick > ClimbingSimulatorRefactored.constants.YValueForResetButtonUpperBorder + ClimbingSimulatorRefactored.constants.HeightOfResetButton) {
 			return false;
 		}
 		
@@ -3834,7 +3827,7 @@ class ClimbingWall extends JPanel {
 		showingInitialInstructions = true;
 		
 		try {
-			Thread.sleep((1000/ClimbingSimulator.constants.DisplayTickRate) + 1);
+			Thread.sleep((1000/ClimbingSimulatorRefactored.constants.DisplayTickRate) + 1);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
@@ -3877,7 +3870,7 @@ class ClimbingWall extends JPanel {
 			int animationLoop = 0;
 			
 			int indexOfHoldToMakeVisible = 0;
-			int numberOfTicksPerHoldVisibilityChange = (int) (ClimbingSimulator.constants.DisplayTickRate/ClimbingSimulator.constants.numberOfHoldsToDisplayPerSecondOnIntroductionScreen);
+			int numberOfTicksPerHoldVisibilityChange = (int) (ClimbingSimulatorRefactored.constants.DisplayTickRate/ClimbingSimulatorRefactored.constants.numberOfHoldsToDisplayPerSecondOnIntroductionScreen);
 			
 			while(displayingIntroduction) {						
 				
@@ -3889,13 +3882,13 @@ class ClimbingWall extends JPanel {
 					
 				}
 				
-				if (!requestForAssistanceVisible && (animationLoop > (ClimbingSimulator.constants.DisplayTickRate * 3))) {
+				if (!requestForAssistanceVisible && (animationLoop > (ClimbingSimulatorRefactored.constants.DisplayTickRate * 3))) {
 					
 					requestForAssistanceVisible = true;
 					
 				}
 				
-				if (!startButtonVisible && (animationLoop > (ClimbingSimulator.constants.DisplayTickRate * 4))) {
+				if (!startButtonVisible && (animationLoop > (ClimbingSimulatorRefactored.constants.DisplayTickRate * 4))) {
 					
 					startButtonVisible = true;
 					
@@ -3904,7 +3897,7 @@ class ClimbingWall extends JPanel {
 				animationLoop++;
 				
 				try {
-					Thread.sleep(1000/ClimbingSimulator.constants.DisplayTickRate);
+					Thread.sleep(1000/ClimbingSimulatorRefactored.constants.DisplayTickRate);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -3935,26 +3928,26 @@ class ClimbingWall extends JPanel {
 		
 		float lengthOfPerpendicularSegment;
 		
-		currentWholeSegmentStartingPoint.x = Math.round(ClimbingSimulator.constants.WidthOfBufferZoneForRandomHoldGeneration + (rand.nextFloat() * (ClimbingSimulator.constants.WallWidth - (2 * ClimbingSimulator.constants.WidthOfBufferZoneForRandomHoldGeneration)))); 
+		currentWholeSegmentStartingPoint.x = Math.round(ClimbingSimulatorRefactored.constants.WidthOfBufferZoneForRandomHoldGeneration + (rand.nextFloat() * (ClimbingSimulatorRefactored.constants.WallWidth - (2 * ClimbingSimulatorRefactored.constants.WidthOfBufferZoneForRandomHoldGeneration)))); 
 		currentWholeSegmentStartingPoint.y = heightOfWall;
 		
 		while (currentWholeSegmentStartingPoint.y > 0) {
 			
-			if (currentWholeSegmentStartingPoint.x < ClimbingSimulator.constants.WidthOfBufferZoneForRandomHoldGeneration) {
+			if (currentWholeSegmentStartingPoint.x < ClimbingSimulatorRefactored.constants.WidthOfBufferZoneForRandomHoldGeneration) {
 				
-				radianSlopeOfSegment = (Pi/2) - (rand.nextFloat() * ClimbingSimulator.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
+				radianSlopeOfSegment = (Pi/2) - (rand.nextFloat() * ClimbingSimulatorRefactored.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
 				
-			} else if (currentWholeSegmentStartingPoint.x > (ClimbingSimulator.constants.WallWidth - ClimbingSimulator.constants.WidthOfBufferZoneForRandomHoldGeneration)) {
+			} else if (currentWholeSegmentStartingPoint.x > (ClimbingSimulatorRefactored.constants.WallWidth - ClimbingSimulatorRefactored.constants.WidthOfBufferZoneForRandomHoldGeneration)) {
 			
-				radianSlopeOfSegment = (Pi/2) + (rand.nextFloat() * ClimbingSimulator.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
+				radianSlopeOfSegment = (Pi/2) + (rand.nextFloat() * ClimbingSimulatorRefactored.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration);
 				
 			} else {	
 			
-				radianSlopeOfSegment = (Pi/2 + ClimbingSimulator.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration) - (rand.nextFloat() * (2 * ClimbingSimulator.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration)); 
+				radianSlopeOfSegment = (Pi/2 + ClimbingSimulatorRefactored.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration) - (rand.nextFloat() * (2 * ClimbingSimulatorRefactored.constants.RadianLimitOfCentralDirectionforRandomHoldGeneration)); 
 			
 			}	
 				
-			lengthOfCurrentWholeSegment = ClimbingSimulator.constants.DistanceLimitOfWholeSegmentOfCentralDirectionForRandomHoldGeneration * rand.nextFloat();
+			lengthOfCurrentWholeSegment = ClimbingSimulatorRefactored.constants.DistanceLimitOfWholeSegmentOfCentralDirectionForRandomHoldGeneration * rand.nextFloat();
 			
 			currentWholeSegmentEndingPoint = CommonAlgorithms.shiftBySlopeAsRadians(currentWholeSegmentStartingPoint, lengthOfCurrentWholeSegment, radianSlopeOfSegment, true);
 			
@@ -3962,11 +3955,11 @@ class ClimbingWall extends JPanel {
 			
 			while (lengthOfCurrentPartialSegment < lengthOfCurrentWholeSegment) {
 				
-				lengthOfCurrentPartialSegment += rand.nextFloat() * ClimbingSimulator.constants.DistanceLimitOfPartialSegmentOfCentralDirectionForRandomHoldGeneration;
+				lengthOfCurrentPartialSegment += rand.nextFloat() * ClimbingSimulatorRefactored.constants.DistanceLimitOfPartialSegmentOfCentralDirectionForRandomHoldGeneration;
 				
 				currentPartialSegmentEndingPoint = CommonAlgorithms.shiftBySlopeAsRadians(currentWholeSegmentStartingPoint, lengthOfCurrentPartialSegment, radianSlopeOfSegment, true);
 				
-				lengthOfPerpendicularSegment = rand.nextFloat() * ClimbingSimulator.constants.DistanceLimitOfSegmentUsedToPlaceHoldPerpendicularToCentralDirectionForRandomHoldGeneration;
+				lengthOfPerpendicularSegment = rand.nextFloat() * ClimbingSimulatorRefactored.constants.DistanceLimitOfSegmentUsedToPlaceHoldPerpendicularToCentralDirectionForRandomHoldGeneration;
 											
 				float ninetyDegreesInRandomRotationalDirection;
 				
@@ -4098,7 +4091,7 @@ class ClimbingWall extends JPanel {
 			
 			someHoldsDoNotHaveEnoughNeighbors = false;
 			
-			interQuadrantGapInDegrees = ClimbingSimulator.constants.InterQuadrantGapInDegrees;
+			interQuadrantGapInDegrees = ClimbingSimulatorRefactored.constants.InterQuadrantGapInDegrees;
 			
 			thereIsAHoldInTheZoneAtTheBottomOfTheWall = true;
 			thereIsAHoldInTheZoneAtTheTopOfTheWall = true;
@@ -4115,7 +4108,7 @@ class ClimbingWall extends JPanel {
 			
 			ClimbingHold hold = new ClimbingHold(e.getX(),e.getY());
 			
-			if ((!contains(hold)) && (hold.y > 0) && (hold.y < heightOfWall) && (hold.x > 0) && (hold.x < ClimbingSimulator.constants.WallWidth)) {
+			if ((!contains(hold)) && (hold.y > 0) && (hold.y < heightOfWall) && (hold.x > 0) && (hold.x < ClimbingSimulatorRefactored.constants.WallWidth)) {
 				
 				add(latestHold, (T) hold);
 				
@@ -4130,7 +4123,7 @@ class ClimbingWall extends JPanel {
 			
 			ClimbingHold center = new ClimbingHold(e.getX(), e.getY());
 			
-			if((!contains(center)) && (center.y > 0) && (center.y < heightOfWall) && (center.x > 0) && (center.x < ClimbingSimulator.constants.WallWidth)) {
+			if((!contains(center)) && (center.y > 0) && (center.y < heightOfWall) && (center.x > 0) && (center.x < ClimbingSimulatorRefactored.constants.WallWidth)) {
 				
 				add(latestHold, (T) center);
 				latestHold++;
@@ -4139,7 +4132,7 @@ class ClimbingWall extends JPanel {
 				return;
 			}
 			
-			int numberOfHoldsToAddOtherThanCenter = ClimbingSimulator.constants.NumberOfRandomHoldsInRandomSpray;
+			int numberOfHoldsToAddOtherThanCenter = ClimbingSimulatorRefactored.constants.NumberOfRandomHoldsInRandomSpray;
 			
 			Area quadrantI = CommonAlgorithms.createQuadrantOfProperHoldSpacingBasedOnReachableRange(center, Direction.UPANDRIGHT, interQuadrantGapInDegrees);
 			Area quadrantII = CommonAlgorithms.createQuadrantOfProperHoldSpacingBasedOnReachableRange(center, Direction.UPANDLEFT, interQuadrantGapInDegrees);
@@ -4150,7 +4143,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if ((quadrantI.contains(randomHold) || quadrantIII.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulator.constants.WallWidth)) {
+				if ((quadrantI.contains(randomHold) || quadrantIII.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulatorRefactored.constants.WallWidth)) {
 					
 					add(latestHold, (T) randomHold);
 					latestHold++;
@@ -4163,7 +4156,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if ((quadrantII.contains(randomHold) || quadrantIV.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulator.constants.WallWidth)) {
+				if ((quadrantII.contains(randomHold) || quadrantIV.contains(randomHold)) && (!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulatorRefactored.constants.WallWidth)) {
 					
 					add(latestHold, (T) randomHold);
 					latestHold++;
@@ -4176,7 +4169,7 @@ class ClimbingWall extends JPanel {
 				
 				ClimbingHold randomHold = createARandomHoldWithinRandomSprayRadiusConstraintsOfCenterHold(center);
 				
-				if((!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulator.constants.WallWidth)) {
+				if((!contains(randomHold)) && (randomHold.y > 0) && (randomHold.y < heightOfWall) && (randomHold.x > 0) && (randomHold.x < ClimbingSimulatorRefactored.constants.WallWidth)) {
 					add(latestHold, (T) randomHold);
 					latestHold++;
 				}		
@@ -4187,7 +4180,7 @@ class ClimbingWall extends JPanel {
 			
 			Random rand = new Random();
 			
-			float randomRadius = ((rand.nextFloat() * (ClimbingSimulator.constants.RandomHoldSprayRadius - ClimbingSimulator.constants.InterholdDistanceTooClose)) + ClimbingSimulator.constants.InterholdDistanceTooClose) * ClimbingSimulator.constants.SizeFactor;
+			float randomRadius = ((rand.nextFloat() * (ClimbingSimulatorRefactored.constants.RandomHoldSprayRadius - ClimbingSimulatorRefactored.constants.InterholdDistanceTooClose)) + ClimbingSimulatorRefactored.constants.InterholdDistanceTooClose) * ClimbingSimulatorRefactored.constants.SizeFactor;
 			float randomDirection = rand.nextFloat() * 2 * Pi;
 			
 			Point randomPoint = CommonAlgorithms.shiftBySlopeAsRadians(centerHold, randomRadius, randomDirection, true);
@@ -4203,7 +4196,7 @@ class ClimbingWall extends JPanel {
 					
 					float proximity = CommonAlgorithms.findDistance((Point) get(holdIndex), (Point) get(i));
 					
-					if (proximity < ClimbingSimulator.constants.InterholdDistanceTooClose * ClimbingSimulator.constants.SizeFactor) {
+					if (proximity < ClimbingSimulatorRefactored.constants.InterholdDistanceTooClose * ClimbingSimulatorRefactored.constants.SizeFactor) {
 						
 						tooClose = true;
 						repaint();
@@ -4237,7 +4230,7 @@ class ClimbingWall extends JPanel {
 		void findHoldsInTheZoneAtTheBottomOfTheWall() {
 			
 			float bottomOfWall = heightOfWall;
-			float bottomOfWallZoneBoundary = bottomOfWall - ClimbingSimulator.constants.HeightOfBottomOfWallZone * ClimbingSimulator.constants.SizeFactor;
+			float bottomOfWallZoneBoundary = bottomOfWall - ClimbingSimulatorRefactored.constants.HeightOfBottomOfWallZone * ClimbingSimulatorRefactored.constants.SizeFactor;
 			
 			for(int i = 0; i < size(); i++) {
 				
@@ -4251,7 +4244,7 @@ class ClimbingWall extends JPanel {
 		
 		void findHoldsInTheZoneAtTheTopOfTheWall() {
 			
-			float topOfWallZoneHeight = ClimbingSimulator.constants.HeightOfTopOfWallZone * ClimbingSimulator.constants.SizeFactor;
+			float topOfWallZoneHeight = ClimbingSimulatorRefactored.constants.HeightOfTopOfWallZone * ClimbingSimulatorRefactored.constants.SizeFactor;
 			
 			for(int i = 0; i < size(); i++) {
 				
@@ -4304,7 +4297,7 @@ class ClimbingWall extends JPanel {
 		
 		void updateTheHoldsThatAreWithinMaxQuadrantDistance() {
 			
-			float maximumInterholdDistanceForOneHoldToPossiblyBeInQuadrantOfAnotherHold = ClimbingSimulator.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulator.constants.SizeFactor;
+			float maximumInterholdDistanceForOneHoldToPossiblyBeInQuadrantOfAnotherHold = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
 			
 			for (int i = 0; i < size() - 1; i++) {
 				
@@ -4714,7 +4707,7 @@ class ClimbingWall extends JPanel {
 			while(wallClimber.isClimberOnTheWall() && wallClimber.isClimberTryingToClimb()) {						
 		
 				try {
-					Thread.sleep(1000/ClimbingSimulator.constants.DisplayTickRate);
+					Thread.sleep(1000/ClimbingSimulatorRefactored.constants.DisplayTickRate);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -4842,19 +4835,19 @@ class ClimbingWall extends JPanel {
 	void drawButtonUserCanPushToBeginRouteSetting (Graphics2D g2d) {
 		
 		g2d.setPaint(Color.black);
-		g2d.drawRect(ClimbingSimulator.constants.XValueForStartButtonLeftBorder, ClimbingSimulator.constants.YValueForStartButtonUpperBorder, ClimbingSimulator.constants.WidthOfStartButton, ClimbingSimulator.constants.HeightOfStartButton);
+		g2d.drawRect(ClimbingSimulatorRefactored.constants.XValueForStartButtonLeftBorder, ClimbingSimulatorRefactored.constants.YValueForStartButtonUpperBorder, ClimbingSimulatorRefactored.constants.WidthOfStartButton, ClimbingSimulatorRefactored.constants.HeightOfStartButton);
 		g2d.setPaint(Color.white);
-		g2d.fillRect(ClimbingSimulator.constants.XValueForStartButtonLeftBorder + 1, ClimbingSimulator.constants.YValueForStartButtonUpperBorder + 1, ClimbingSimulator.constants.WidthOfStartButton - 2, ClimbingSimulator.constants.HeightOfStartButton - 2);
+		g2d.fillRect(ClimbingSimulatorRefactored.constants.XValueForStartButtonLeftBorder + 1, ClimbingSimulatorRefactored.constants.YValueForStartButtonUpperBorder + 1, ClimbingSimulatorRefactored.constants.WidthOfStartButton - 2, ClimbingSimulatorRefactored.constants.HeightOfStartButton - 2);
 		
 		g2d.setPaint(Color.black);
 		g2d.setFont((new Font("SansSerif",1,12)));
-		g2d.drawString("Start Setting a Route", ClimbingSimulator.constants.XValueForStartButtonLeftBorder + 15, ClimbingSimulator.constants.YValueForStartButtonUpperBorder + 25);
+		g2d.drawString("Start Setting a Route", ClimbingSimulatorRefactored.constants.XValueForStartButtonLeftBorder + 15, ClimbingSimulatorRefactored.constants.YValueForStartButtonUpperBorder + 25);
 		
 	}
 	
 	void drawIntroductionHolds (Graphics2D g2d) {
 		
-		float hd = ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor;
+		float hd = ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor;
 		
 		for (ClimbingHold h: setOfIntroductionHolds) {
 			
@@ -4879,21 +4872,21 @@ class ClimbingWall extends JPanel {
 	void drawUserEnteredHoldsBoundriesAndNetworking (Graphics2D g2d) {
 		
 		g2d.setPaint(Color.BLACK);
-		g2d.draw(new Rectangle2D.Float(-1, -1, ClimbingSimulator.constants.WallWidth + 2, heightOfWall + 2));
+		g2d.draw(new Rectangle2D.Float(-1, -1, ClimbingSimulatorRefactored.constants.WallWidth + 2, heightOfWall + 2));
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheTopOfTheWall) {
 			
-			g2d.setPaint(ClimbingSimulator.constants.BoundaryDesignationColor);
-			g2d.fill(new Rectangle2D.Float(0, ClimbingSimulator.constants.HeightOfTopOfWallZone * ClimbingSimulator.constants.SizeFactor, ClimbingSimulator.constants.WallWidth + 1, ClimbingSimulator.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.BoundaryDesignationColor);
+			g2d.fill(new Rectangle2D.Float(0, ClimbingSimulatorRefactored.constants.HeightOfTopOfWallZone * ClimbingSimulatorRefactored.constants.SizeFactor, ClimbingSimulatorRefactored.constants.WallWidth + 1, ClimbingSimulatorRefactored.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
 		}
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheBottomOfTheWall) {
 
-			g2d.setPaint(ClimbingSimulator.constants.BoundaryDesignationColor);
-			g2d.fill(new Rectangle2D.Float(0,(heightOfWall - ((ClimbingSimulator.constants.HeightOfBottomOfWallZone * ClimbingSimulator.constants.SizeFactor) + ClimbingSimulator.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall)), ClimbingSimulator.constants.WallWidth + 1, ClimbingSimulator.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.BoundaryDesignationColor);
+			g2d.fill(new Rectangle2D.Float(0,(heightOfWall - ((ClimbingSimulatorRefactored.constants.HeightOfBottomOfWallZone * ClimbingSimulatorRefactored.constants.SizeFactor) + ClimbingSimulatorRefactored.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall)), ClimbingSimulatorRefactored.constants.WallWidth + 1, ClimbingSimulatorRefactored.constants.ThicknessOfTheBoundaryMarkerForTheZonesAtTheTopAndTheBottomOfTheWall));
 		}
 		
-		float hd = ClimbingSimulator.constants.HoldDiameter * ClimbingSimulator.constants.SizeFactor;
+		float hd = ClimbingSimulatorRefactored.constants.HoldDiameter * ClimbingSimulatorRefactored.constants.SizeFactor;
 		
 		if (!showingWebOfConnections) {
 			
@@ -4927,7 +4920,7 @@ class ClimbingWall extends JPanel {
 						lowQuadrants.add(quadrantIII);
 						lowQuadrants.add(quadrantIV);
 						
-						g2d.setPaint(ClimbingSimulator.constants.TransparentBlue);
+						g2d.setPaint(ClimbingSimulatorRefactored.constants.TransparentBlue);
 						
 						g2d.fill(lowQuadrants);
 					}
@@ -4942,7 +4935,7 @@ class ClimbingWall extends JPanel {
 						highQuadrants.add(quadrantI);
 						highQuadrants.add(quadrantII);
 						
-						g2d.setPaint(ClimbingSimulator.constants.TransparentBlue);
+						g2d.setPaint(ClimbingSimulatorRefactored.constants.TransparentBlue);
 						
 						g2d.fill(highQuadrants);
 					}
@@ -4957,7 +4950,7 @@ class ClimbingWall extends JPanel {
 						lowLeftToHighRightQuadrants.add(quadrantI);
 						lowLeftToHighRightQuadrants.add(quadrantIII);
 						
-						g2d.setPaint(ClimbingSimulator.constants.TransparentRed);
+						g2d.setPaint(ClimbingSimulatorRefactored.constants.TransparentRed);
 						
 						g2d.fill(lowLeftToHighRightQuadrants);
 					}
@@ -4972,7 +4965,7 @@ class ClimbingWall extends JPanel {
 						highLeftToLowRightQuadrants.add(quadrantII);
 						highLeftToLowRightQuadrants.add(quadrantIV);
 						
-						g2d.setPaint(ClimbingSimulator.constants.TransparentBlue);
+						g2d.setPaint(ClimbingSimulatorRefactored.constants.TransparentBlue);
 						
 						g2d.fill(highLeftToLowRightQuadrants);
 					}
@@ -5006,7 +4999,7 @@ class ClimbingWall extends JPanel {
 				}
 			}
 						
-			float limitRadius = ClimbingSimulator.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulator.constants.SizeFactor;
+			float limitRadius = ClimbingSimulatorRefactored.constants.MaximumDistanceForProperSpacingInQuadrant * ClimbingSimulatorRefactored.constants.SizeFactor;
 			
 			g2d.setPaint(Color.GRAY);
 			
@@ -5038,13 +5031,13 @@ class ClimbingWall extends JPanel {
 	void drawResetButton(Graphics2D g2d) {
 		
 		g2d.setPaint(Color.black);
-		g2d.drawRect(ClimbingSimulator.constants.XValueForResetButtonLeftBorder, ClimbingSimulator.constants.YValueForResetButtonUpperBorder, ClimbingSimulator.constants.WidthOfResetButton, ClimbingSimulator.constants.HeightOfResetButton);
+		g2d.drawRect(ClimbingSimulatorRefactored.constants.XValueForResetButtonLeftBorder, ClimbingSimulatorRefactored.constants.YValueForResetButtonUpperBorder, ClimbingSimulatorRefactored.constants.WidthOfResetButton, ClimbingSimulatorRefactored.constants.HeightOfResetButton);
 		g2d.setPaint(Color.white);
-		g2d.fillRect(ClimbingSimulator.constants.XValueForResetButtonLeftBorder + 1, ClimbingSimulator.constants.YValueForResetButtonUpperBorder + 1, ClimbingSimulator.constants.WidthOfResetButton - 2, ClimbingSimulator.constants.HeightOfResetButton - 2);
+		g2d.fillRect(ClimbingSimulatorRefactored.constants.XValueForResetButtonLeftBorder + 1, ClimbingSimulatorRefactored.constants.YValueForResetButtonUpperBorder + 1, ClimbingSimulatorRefactored.constants.WidthOfResetButton - 2, ClimbingSimulatorRefactored.constants.HeightOfResetButton - 2);
 		
 		g2d.setPaint(Color.black);
 		g2d.setFont((new Font("SansSerif",1,12)));
-		g2d.drawString("Reset the Wall", ClimbingSimulator.constants.XValueForResetButtonLeftBorder + 5, ClimbingSimulator.constants.YValueForResetButtonUpperBorder + 17);
+		g2d.drawString("Reset the Wall", ClimbingSimulatorRefactored.constants.XValueForResetButtonLeftBorder + 5, ClimbingSimulatorRefactored.constants.YValueForResetButtonUpperBorder + 17);
 		
 	}
 	
@@ -5098,7 +5091,7 @@ class ClimbingWall extends JPanel {
 		
 		if (!wallFinalized && displayingFeedback && !tryingToAddHolds) {
 			
-			g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(textStartingWidth - 5, textStartingHeight - 21, textBoxWidth, textBoxHeight);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
@@ -5122,7 +5115,7 @@ class ClimbingWall extends JPanel {
 	
 	void requestUserForAChallenge (ArrayList<ClimbingHold> al, Graphics2D g2d) {
 		
-		g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(45, 169, 300, 60);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -5136,11 +5129,11 @@ class ClimbingWall extends JPanel {
 			
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheTopOfTheWall) {
 			
-			g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(45, 49, 350, 60);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(ClimbingSimulator.constants.BoundaryDesignationColor);
+			g2d.setColor(ClimbingSimulatorRefactored.constants.BoundaryDesignationColor);
 			
 			g2d.drawString("I'm not sure I'll be able to reach the top.", 50, 70);
 			g2d.drawString("Please add at least one hold above the line.", 50, 100);
@@ -5148,11 +5141,11 @@ class ClimbingWall extends JPanel {
 		
 		if (!setOfUserEnteredHolds.thereIsAHoldInTheZoneAtTheBottomOfTheWall) {
 			
-			g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 			g2d.fillRect(45, (heightOfWall - 121), 350, 60);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(ClimbingSimulator.constants.BoundaryDesignationColor);
+			g2d.setColor(ClimbingSimulatorRefactored.constants.BoundaryDesignationColor);
 			
 			g2d.drawString("I won't be able to start on these high holds.", 50, (heightOfWall - 100));
 			g2d.drawString("Please add at least one hold below the line.", 50, (heightOfWall - 70));
@@ -5163,19 +5156,19 @@ class ClimbingWall extends JPanel {
 
 		if (tryingToAddHolds) {
 			
-			g2d.setPaint(ClimbingSimulator.constants.ClearestTransparentWallColor);
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.ClearestTransparentWallColor);
 			g2d.fillRect(15, 239, 550, 330);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(ClimbingSimulator.constants.TransparentNeedCloserHoldsColor);
+			g2d.setColor(ClimbingSimulatorRefactored.constants.TransparentNeedCloserHoldsColor);
 		
 		} else {
 			
-			g2d.setPaint(ClimbingSimulator.constants.MediumTransparentWallColor);
+			g2d.setPaint(ClimbingSimulatorRefactored.constants.MediumTransparentWallColor);
 			g2d.fillRect(15, 239, 550, 330);
 			
 			g2d.setFont(new Font("SansSerif",1,16));
-			g2d.setColor(ClimbingSimulator.constants.OpaqueNeedCloserHoldsColor);
+			g2d.setColor(ClimbingSimulatorRefactored.constants.OpaqueNeedCloserHoldsColor);
 			
 		}
 			
@@ -5197,11 +5190,11 @@ class ClimbingWall extends JPanel {
 	
 	void promptForFinalApprovalOfHolds(Graphics2D g2d) {
 		
-		g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(95, heightOfWall/2 - 121, 300, 200);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
-		g2d.setColor(ClimbingSimulator.constants.FinalizeHoldsConfirmationTextColor);
+		g2d.setColor(ClimbingSimulatorRefactored.constants.FinalizeHoldsConfirmationTextColor);
 		
 		g2d.drawString("This looks good to me.", 100, heightOfWall/2 - 100);
 		
@@ -5215,7 +5208,7 @@ class ClimbingWall extends JPanel {
 	
 	void showMessageOfAcceptanceOfDefeat(Graphics2D g2d) {
 	
-		g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(35, 79, 410, 85);
 		
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -5228,7 +5221,7 @@ class ClimbingWall extends JPanel {
 		
 	void showFinalMessageOfAppreciation(Graphics2D g2d) {
 		
-		g2d.setPaint(ClimbingSimulator.constants.MostOpaqueTransparentWallColor);
+		g2d.setPaint(ClimbingSimulatorRefactored.constants.MostOpaqueTransparentWallColor);
 		g2d.fillRect(35, (heightOfWall/2) - 21, 400, 175);
 				
 		g2d.setFont(new Font("SansSerif",1,16));
@@ -5243,18 +5236,18 @@ class ClimbingWall extends JPanel {
 	
 	void paintOverAreaOutsideOfWall(Graphics2D g2d) {
 		
-		g2d.setPaint (ClimbingSimulator.constants.WallColor);
+		g2d.setPaint (ClimbingSimulatorRefactored.constants.WallColor);
 		
-		g2d.fillRect (0, heightOfWall + 2, ClimbingSimulator.constants.WallWidth + 1, heightOfWall);
-		g2d.fillRect (ClimbingSimulator.constants.WallWidth + 2, 0, ClimbingSimulator.constants.WallWidth, heightOfWall + 1);
+		g2d.fillRect (0, heightOfWall + 2, ClimbingSimulatorRefactored.constants.WallWidth + 1, heightOfWall);
+		g2d.fillRect (ClimbingSimulatorRefactored.constants.WallWidth + 2, 0, ClimbingSimulatorRefactored.constants.WallWidth, heightOfWall + 1);
 		
 	}
 	
 	public Dimension getPreferredSize () {
-		return new Dimension(ClimbingSimulator.constants.WallWidth,heightOfWall);
+		return new Dimension(ClimbingSimulatorRefactored.constants.WallWidth,heightOfWall);
 	}
 	
 	public Dimension getMinimumSize () {
-		return new Dimension(ClimbingSimulator.constants.WallWidth,heightOfWall);
+		return new Dimension(ClimbingSimulatorRefactored.constants.WallWidth,heightOfWall);
 	}
 }
