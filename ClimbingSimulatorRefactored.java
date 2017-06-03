@@ -53,18 +53,6 @@ public class ClimbingSimulatorRefactored extends JFrame {
 	}
 }
 
-enum LimbIdentifier {
-	LEFTARM, RIGHTARM, LEFTLEG, RIGHTLEG
-}
-
-enum Direction {
-	UP, DOWN, RIGHT, LEFT, UPANDRIGHT, DOWNANDRIGHT, DOWNANDLEFT, UPANDLEFT
-}
-
-enum ConnectionAnalysisState {
-	NOTYETCONNECTED, CONNECTING, CONNECTED;  
-}
-
 class LawOfCosinesException extends Exception {
 
 	private static final long serialVersionUID = 1L;
