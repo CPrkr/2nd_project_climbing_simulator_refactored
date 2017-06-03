@@ -9,10 +9,6 @@ public class ClimbingSimulatorRefactored extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public ClimbingSimulatorRefactored (String string) {
-	
-	}
-
 	public static void main (String[] args) {	
 		SwingUtilities.invokeLater(new Runnable () {
 			public void run() {
@@ -22,7 +18,7 @@ public class ClimbingSimulatorRefactored extends JFrame {
 	}
 	
 	private static void createAndShowWall () {
-		ClimbingSimulatorRefactored cSR = new ClimbingSimulatorRefactored("Climbing Wall Simulator");
+		ClimbingSimulatorRefactored cSR = new ClimbingSimulatorRefactored();
 		cSR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ClimbingWall cw = new ClimbingWall();
