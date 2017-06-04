@@ -2797,41 +2797,12 @@ class Climber extends Applet {
 	
 	//V. METHODS RELATED TO DRAWING
 	
-	//determine point that is a particular distance away from a body segment point along a ray that is perpendicular to the body segment's orientation, either clockwise or counterclockwise
-	Point shiftByOrientationPerpendicularly(Point startingPoint, float bodySegmentWidth, float bodySegmentOrientation, boolean counterclockwise) {
-		
-		float ninetyDegreesInProperRotationalDirection = Pi/2;
-		
-		if (!counterclockwise) {
-			
-			ninetyDegreesInProperRotationalDirection = ninetyDegreesInProperRotationalDirection * (-1);
-		
-		}
-		
-		float halfWidth = bodySegmentWidth/2;
-		
-		return CommonAlgorithms.shiftPointByShiftedOrientation(startingPoint, halfWidth, bodySegmentOrientation, ninetyDegreesInProperRotationalDirection);
-	
-	}
-	
-	Point calculateCircleDrawingPoint(Point circleCenter, float circleRadius) {
-		
-		return CommonAlgorithms.roundPoint((circleCenter.x - circleRadius), (circleCenter.y - circleRadius));
-		
-	}
-	
-	Point calculateFootDrawingPoint(Point anklePoint, boolean leftSide) {
-		
-		float adjuster = footLengthHorizontalFromAnkleToToe;
-		
-		if (!leftSide) {
-		
-			adjuster = (footLength - adjuster);
-		
-		}
-		
-		return CommonAlgorithms.roundPoint((anklePoint.x - adjuster), anklePoint.y);
-	
+	void updateAllDrawingPoints () {
+		updateLeftArmDrawingPoints();
+		updateRightArmDrawingPoints();
+		updateLeftLegDrawingPoints();
+		updateRightLegDrawingPoints();
+		updateHeadDrawingPoints();
 	}
 	
 	void updateLeftArmDrawingPoints() {
@@ -2909,13 +2880,42 @@ class Climber extends Applet {
 		neckDrawingPoint.x = Math.round(neckBaseBetweenShoulderSocketsPos.x -(neckThickness/2));
 		neckDrawingPoint.y = Math.round(neckBaseBetweenShoulderSocketsPos.y - (distanceFromNeckBaseAtShoulderSocketLevelToBottomOfHeadCircle + (headRadius * Constants.FactorForDeterminingAdditionalVerticalDistanceOfNeckDrawingAreaDeterminedAsAFractionOfHeadRadius)));		
 	}
+
+	//determine point that is a particular distance away from a body segment point along a ray that is perpendicular to the body segment's orientation, either clockwise or counterclockwise
+	Point shiftByOrientationPerpendicularly(Point startingPoint, float bodySegmentWidth, float bodySegmentOrientation, boolean counterclockwise) {
+		
+		float ninetyDegreesInProperRotationalDirection = Pi/2;
+		
+		if (!counterclockwise) {
+			
+			ninetyDegreesInProperRotationalDirection = ninetyDegreesInProperRotationalDirection * (-1);
+		
+		}
+		
+		float halfWidth = bodySegmentWidth/2;
+		
+		return CommonAlgorithms.shiftPointByShiftedOrientation(startingPoint, halfWidth, bodySegmentOrientation, ninetyDegreesInProperRotationalDirection);
 	
-	void updateAllDrawingPoints () {
-		updateLeftArmDrawingPoints();
-		updateRightArmDrawingPoints();
-		updateLeftLegDrawingPoints();
-		updateRightLegDrawingPoints();
-		updateHeadDrawingPoints();
+	}
+	
+	Point calculateCircleDrawingPoint(Point circleCenter, float circleRadius) {
+		
+		return CommonAlgorithms.roundPoint((circleCenter.x - circleRadius), (circleCenter.y - circleRadius));
+		
+	}
+	
+	Point calculateFootDrawingPoint(Point anklePoint, boolean leftSide) {
+		
+		float adjuster = footLengthHorizontalFromAnkleToToe;
+		
+		if (!leftSide) {
+		
+			adjuster = (footLength - adjuster);
+		
+		}
+		
+		return CommonAlgorithms.roundPoint((anklePoint.x - adjuster), anklePoint.y);
+	
 	}
 	
 	void pauseForAnimationTiming() {
