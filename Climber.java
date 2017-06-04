@@ -1632,7 +1632,7 @@ class Climber extends Applet {
 		
 		finalizedSetOfUserEnteredHolds = (ClimbingWall.SetOfHolds<ClimbingHold>) cw.setOfUserEnteredHolds.clone();
 		
-		findMostEfficientPathsUpTheWallThroughTheHoldPoints();
+		findMostEfficientPathUpTheWallThroughTheHoldPoints();
 		
 		findThePathThroughEachSecondIterationAveragePointOfHoldsWithinHalfOfTheMaximumReachOfBothArmsOfEachHoldPointOnTheShortestPathFromTopToBottomBasedOnQuadrantConnections();
 		bookendThePathThroughEachSecondIterationAveragePointOfHoldsWithinMaximumReachOfBothArmsOfEachHoldPointOnTheShortestPathFromTopToBottomBasedOnQuadrantConnections();
@@ -1661,6 +1661,19 @@ class Climber extends Applet {
 		setLoweringPosition();
 	}	
 	
+	void setLoweringPosition(){
+		
+		leftShoulderSocketPos = CommonAlgorithms.roundPoint((anchorPoint.x - (shoulderSocketSpan/2)), ((-1) * (footHeight + calfLength + femurLength + torsoHeightFromTopOfTrapsToWaist)));
+		updateTorsoPoints();
+				
+		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * Constants.SizeFactor)));
+		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * Constants.SizeFactor)));
+		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
+		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
+		
+		updateAllCriticalPoints();
+	}
+	
 	void executeStepsForClimbingTheWall() {
 		
 		ClimbingMovesProcessor movesProcessor = new ClimbingMovesProcessor();
@@ -1685,31 +1698,6 @@ class Climber extends Applet {
 			
 			return dummyString;
 		}
-	}
-		
-	void updateAllWireframeAndDrawingPointsInProperSequence() {
-		
-		updateTorsoPoints();
-		updateAllCriticalPoints();
-	}
-	
-	void updateAllCriticalPoints() {
-		
-		updateAllLimbWireframeValues();
-		updateAllDrawingPoints();	
-	}
-	
-	void setLoweringPosition(){
-		
-		leftShoulderSocketPos = CommonAlgorithms.roundPoint((anchorPoint.x - (shoulderSocketSpan/2)), ((-1) * (footHeight + calfLength + femurLength + torsoHeightFromTopOfTrapsToWaist)));
-		updateTorsoPoints();
-				
-		leftHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (50 * Constants.SizeFactor)));
-		rightHandCenterPos = CommonAlgorithms.roundPoint(anchorPoint.x, (leftShoulderSocketPos.y - (20 * Constants.SizeFactor)));
-		leftFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x - (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
-		rightFootHoldContactPoint = CommonAlgorithms.roundPoint((pelvisCenterPos.x + (30 * Constants.SizeFactor)), (pelvisCenterPos.y + (66 * Constants.SizeFactor)));
-		
-		updateAllCriticalPoints();
 	}
 	
 	void lowerClimber() {
@@ -1736,6 +1724,18 @@ class Climber extends Applet {
 		limbsCoordinator.establishLegs();
 	}
 	
+	void updateAllWireframeAndDrawingPointsInProperSequence() {
+		
+		updateTorsoPoints();
+		updateAllCriticalPoints();
+	}
+	
+	void updateAllCriticalPoints() {
+		
+		updateAllLimbWireframeValues();
+		updateAllDrawingPoints();	
+	}
+		
 	void prepareToClimb () {
 
 		difficultMoveTracker = 0;
@@ -2465,7 +2465,7 @@ class Climber extends Applet {
 	}
 	
 	//IV. METHODS RELATED TO MOVEMENT
-	void findMostEfficientPathsUpTheWallThroughTheHoldPoints() {
+	void findMostEfficientPathUpTheWallThroughTheHoldPoints() {
 		
 		findMostEfficientPathFromBottomOfWallToTopOfWallThroughTheHoldPointsUsingQuadrantRadiusLimitForEachHoldInTheZoneAtTheTopOfTheWall();
 		
@@ -2503,15 +2503,6 @@ class Climber extends Applet {
 					finalizedSetOfUserEnteredHolds.get(indexOfAdjacentHold).adjacentHoldThatBeginsShortestPathToBottomOfWallViaQuadrantSizeLimitsOnConnections = indexOfHoldBeingAnalyzed;
 					distanceAnalysisQueue.add(indexOfAdjacentHold);
 				}	
-			}
-		}
-		
-		float shortestPath = Float.MAX_VALUE;
-		
-		for (Integer i : finalizedSetOfUserEnteredHolds.holdsWithinTopOfWallZone) {
-			
-			if (finalizedSetOfUserEnteredHolds.get(i).shortestDistanceToABottomHoldViaQuadrantSizeLimitsOnConnections < shortestPath) {
-				shortestPath = finalizedSetOfUserEnteredHolds.get(i).shortestDistanceToABottomHoldViaQuadrantSizeLimitsOnConnections;
 			}
 		}
 	}
