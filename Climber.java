@@ -2810,15 +2810,15 @@ class Climber extends Applet {
 		leftElbowDrawingPoint = calculateCircleDrawingPoint(leftElbowPos, elbowWidth/2);
 		leftHandDrawingPoint = calculateCircleDrawingPoint(leftHandCenterPos, handRadius);
 		
-		lateralProximalLeftHumerus = shiftByOrientationPerpendicularly(leftShoulderSocketPos, upperArmWidth, leftHumerusOrientation, false);
-		medialProximalLeftHumerus = shiftByOrientationPerpendicularly(leftShoulderSocketPos, upperArmWidth, leftHumerusOrientation, true);
-		lateralDistalLeftHumerus = shiftByOrientationPerpendicularly(leftElbowPos, elbowWidth, leftHumerusOrientation, false);
-		medialDistalLeftHumerus = shiftByOrientationPerpendicularly(leftElbowPos, elbowWidth, leftHumerusOrientation, true);
+		lateralProximalLeftHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftShoulderSocketPos, upperArmWidth, leftHumerusOrientation, false);
+		medialProximalLeftHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftShoulderSocketPos, upperArmWidth, leftHumerusOrientation, true);
+		lateralDistalLeftHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftElbowPos, elbowWidth, leftHumerusOrientation, false);
+		medialDistalLeftHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftElbowPos, elbowWidth, leftHumerusOrientation, true);
 		
-		lateralProximalLeftForearm = shiftByOrientationPerpendicularly(leftElbowPos, elbowWidth, leftForearmOrientation, false);
-		medialProximalLeftForearm = shiftByOrientationPerpendicularly(leftElbowPos, elbowWidth, leftForearmOrientation, true);
-		lateralDistalLeftForearm = shiftByOrientationPerpendicularly(leftWristPos, wristWidth, leftForearmOrientation, false);
-		medialDistalLeftForearm = shiftByOrientationPerpendicularly(leftWristPos, wristWidth, leftForearmOrientation, true);	
+		lateralProximalLeftForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftElbowPos, elbowWidth, leftForearmOrientation, false);
+		medialProximalLeftForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftElbowPos, elbowWidth, leftForearmOrientation, true);
+		lateralDistalLeftForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftWristPos, wristWidth, leftForearmOrientation, false);
+		medialDistalLeftForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftWristPos, wristWidth, leftForearmOrientation, true);	
 	}
 	
 	void updateRightArmDrawingPoints() {
@@ -2827,15 +2827,15 @@ class Climber extends Applet {
 		rightElbowDrawingPoint = calculateCircleDrawingPoint(rightElbowPos, elbowWidth/2);
 		rightHandDrawingPoint = calculateCircleDrawingPoint(rightHandCenterPos, handRadius);
 	
-		lateralProximalRightHumerus = shiftByOrientationPerpendicularly(rightShoulderSocketPos, upperArmWidth, rightHumerusOrientation, true);
-		medialProximalRightHumerus = shiftByOrientationPerpendicularly(rightShoulderSocketPos, upperArmWidth, rightHumerusOrientation, false);
-		lateralDistalRightHumerus = shiftByOrientationPerpendicularly(rightElbowPos, elbowWidth, rightHumerusOrientation, true);
-		medialDistalRightHumerus = shiftByOrientationPerpendicularly(rightElbowPos, elbowWidth, rightHumerusOrientation, false);
+		lateralProximalRightHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightShoulderSocketPos, upperArmWidth, rightHumerusOrientation, true);
+		medialProximalRightHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightShoulderSocketPos, upperArmWidth, rightHumerusOrientation, false);
+		lateralDistalRightHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightElbowPos, elbowWidth, rightHumerusOrientation, true);
+		medialDistalRightHumerus = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightElbowPos, elbowWidth, rightHumerusOrientation, false);
 		
-		lateralProximalRightForearm = shiftByOrientationPerpendicularly(rightElbowPos, elbowWidth, rightForearmOrientation, true);
-		medialProximalRightForearm = shiftByOrientationPerpendicularly(rightElbowPos, elbowWidth, rightForearmOrientation, false);
-		lateralDistalRightForearm = shiftByOrientationPerpendicularly(rightWristPos, wristWidth, rightForearmOrientation, true);
-		medialDistalRightForearm = shiftByOrientationPerpendicularly(rightWristPos, wristWidth, rightForearmOrientation, false);
+		lateralProximalRightForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightElbowPos, elbowWidth, rightForearmOrientation, true);
+		medialProximalRightForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightElbowPos, elbowWidth, rightForearmOrientation, false);
+		lateralDistalRightForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightWristPos, wristWidth, rightForearmOrientation, true);
+		medialDistalRightForearm = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightWristPos, wristWidth, rightForearmOrientation, false);
 	}
 	
 	void updateLeftLegDrawingPoints() {
@@ -2844,15 +2844,15 @@ class Climber extends Applet {
 		leftHipSocketDrawingPoint = calculateCircleDrawingPoint(leftHipSocketPos, upperThighWidth/2);
 		leftKneeDrawingPoint = calculateCircleDrawingPoint(leftKneePos, kneeWidth/2);
 		
-		lateralProximalLeftThigh = shiftByOrientationPerpendicularly(leftHipSocketPos, upperThighWidth, leftThighOrientation, false);
-		medialProximalLeftThigh = shiftByOrientationPerpendicularly(leftHipSocketPos, upperThighWidth, leftThighOrientation, true);
-		lateralDistalLeftThigh = shiftByOrientationPerpendicularly(leftKneePos, kneeWidth, leftThighOrientation, false);
-		medialDistalLeftThigh = shiftByOrientationPerpendicularly(leftKneePos, kneeWidth, leftThighOrientation, true);
+		lateralProximalLeftThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftHipSocketPos, upperThighWidth, leftThighOrientation, false);
+		medialProximalLeftThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftHipSocketPos, upperThighWidth, leftThighOrientation, true);
+		lateralDistalLeftThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftKneePos, kneeWidth, leftThighOrientation, false);
+		medialDistalLeftThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftKneePos, kneeWidth, leftThighOrientation, true);
 		
-		lateralProximalLeftCalf = shiftByOrientationPerpendicularly(leftKneePos, kneeWidth, leftCalfOrientation, false);
-		medialProximalLeftCalf = shiftByOrientationPerpendicularly(leftKneePos, kneeWidth, leftCalfOrientation, true);
-		lateralDistalLeftCalf = shiftByOrientationPerpendicularly(leftAnklePos, ankleWidth, leftCalfOrientation, false);
-		medialDistalLeftCalf = shiftByOrientationPerpendicularly(leftAnklePos, ankleWidth, leftCalfOrientation, true);
+		lateralProximalLeftCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftKneePos, kneeWidth, leftCalfOrientation, false);
+		medialProximalLeftCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftKneePos, kneeWidth, leftCalfOrientation, true);
+		lateralDistalLeftCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftAnklePos, ankleWidth, leftCalfOrientation, false);
+		medialDistalLeftCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(leftAnklePos, ankleWidth, leftCalfOrientation, true);
 		
 	}
 	
@@ -2862,15 +2862,15 @@ class Climber extends Applet {
 		rightHipSocketDrawingPoint = calculateCircleDrawingPoint(rightHipSocketPos, upperThighWidth/2);
 		rightKneeDrawingPoint = calculateCircleDrawingPoint(rightKneePos, kneeWidth/2);
 		
-		lateralProximalRightThigh = shiftByOrientationPerpendicularly(rightHipSocketPos, upperThighWidth, rightThighOrientation, true);
-		medialProximalRightThigh = shiftByOrientationPerpendicularly(rightHipSocketPos, upperThighWidth, rightThighOrientation, false);
-		lateralDistalRightThigh = shiftByOrientationPerpendicularly(rightKneePos, kneeWidth, rightThighOrientation, true);
-		medialDistalRightThigh = shiftByOrientationPerpendicularly(rightKneePos, kneeWidth, rightThighOrientation, false);
+		lateralProximalRightThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightHipSocketPos, upperThighWidth, rightThighOrientation, true);
+		medialProximalRightThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightHipSocketPos, upperThighWidth, rightThighOrientation, false);
+		lateralDistalRightThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightKneePos, kneeWidth, rightThighOrientation, true);
+		medialDistalRightThigh = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightKneePos, kneeWidth, rightThighOrientation, false);
 		
-		lateralProximalRightCalf = shiftByOrientationPerpendicularly(rightKneePos, kneeWidth, rightCalfOrientation, true);
-		medialProximalRightCalf = shiftByOrientationPerpendicularly(rightKneePos, kneeWidth, rightCalfOrientation, false);
-		lateralDistalRightCalf = shiftByOrientationPerpendicularly(rightAnklePos, ankleWidth, rightCalfOrientation, true);
-		medialDistalRightCalf = shiftByOrientationPerpendicularly(rightAnklePos, ankleWidth, rightCalfOrientation, false);
+		lateralProximalRightCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightKneePos, kneeWidth, rightCalfOrientation, true);
+		medialProximalRightCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightKneePos, kneeWidth, rightCalfOrientation, false);
+		lateralDistalRightCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightAnklePos, ankleWidth, rightCalfOrientation, true);
+		medialDistalRightCalf = findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(rightAnklePos, ankleWidth, rightCalfOrientation, false);
 		
 	}
 	
@@ -2882,7 +2882,7 @@ class Climber extends Applet {
 	}
 
 	//determine point that is a particular distance away from a body segment point along a ray that is perpendicular to the body segment's orientation, either clockwise or counterclockwise
-	Point shiftByOrientationPerpendicularly(Point startingPoint, float bodySegmentWidth, float bodySegmentOrientation, boolean counterclockwise) {
+	Point findACornerPointForABodySegmentByShiftingAMidpointInADirectionPerpendicularToTheOrientationOfTheBodySegment(Point startingPoint, float bodySegmentWidth, float bodySegmentOrientation, boolean counterclockwise) {
 		
 		float ninetyDegreesInProperRotationalDirection = Pi/2;
 		
